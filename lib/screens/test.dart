@@ -60,10 +60,23 @@ class _TestState extends State<Test> {
               border: Border.all(width: 2, color: kPrimaryLightColor),
             ),
             child: Center(
-              child: Text('s'),
-              // child: retrievedName != true
-              //     ? SvgPicture.asset('assets/icons/card_top_view_icon.svg')
-              //     : Text(retrievedId.toString()),
+              child: FutureBuilder(
+                future: DatabaseServices.parkings(),
+                builder: (context, data) {
+                  if (data.hasData) {
+                    Map<String, dynamic> x = data.data as Map<String, dynamic>;
+
+                    if (x['p1'] == true) {
+                      return Text('ada');
+                    } else if (x['p1'] == false) {
+                      return Text('Kosong');
+                    } else {
+                      return Text('Gagal!');
+                    }
+                  }
+                  return Text("dada");
+                },
+              ),
             ),
           ),
         ],
