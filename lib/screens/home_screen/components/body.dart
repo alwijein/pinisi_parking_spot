@@ -50,7 +50,6 @@ class Body extends StatelessWidget {
               Row(
                 children: [
                   FreeParkingSide(),
-                  FreeParkingSide(),
                 ],
               )
             ],

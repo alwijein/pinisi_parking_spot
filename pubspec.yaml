@@ -28,6 +28,8 @@ dependencies:
   dotted_border: ^2.0.0
   dotted_decoration: ^2.0.0
   equatable: ^2.0.3
+  firebase_core: ^1.4.0
+  firebase_database: ^7.1.2
   flutter_bloc: ^7.0.1
   flutter_svg: ^0.22.0
   shared_preferences: ^2.0.6
