@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "601144175200",
+    "project_id": "pinisiparkingspot",
+    "storage_bucket": "pinisiparkingspot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601144175200:android:5f946b2811f0944de07105",
+        "android_client_info": {
+          "package_name": "com.example.pinisi_parking_spot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601144175200-6r6qvor0doncghb5ovitlm3n3e7b0pt6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLbWGO7tHEwsQEg60tZPSEpY_U2gZwDLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601144175200-6r6qvor0doncghb5ovitlm3n3e7b0pt6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
