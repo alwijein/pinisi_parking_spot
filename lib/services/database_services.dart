@@ -2,27 +2,20 @@ part of 'services.dart';
 
 class DatabaseServices {
   static FirebaseDatabase fb = FirebaseDatabase.instance;
-  static Future<bool> parkings(String id) async {
-    // List<ParkingModels> parkings = [];
+  static Stream<Event?> parkings(String id) async* {
+    // var maps = await fb.reference().child('Parking').once();
+    // var maps2 = await fb.reference().child('Parking').
+    Stream<Event> maps = fb.reference().child('Parking').onValue;
+    // var x = maps.value;
 
-    var maps = await fb.reference().child('Parking').once();
+    // print(x);
 
-    // print(maps.value);
-    var x = maps.value;
-    // x.forEach((key, value) {
-    //   print(key.toString() + " === " + value.toString());
-    // });
+    await for (Event data in maps) {
+      var json = data.snapshot.value;
 
-    // for (var e in maps.value) {
-    //   parkings.add(
-    //     ParkingModels(
-    //       id_parkir: maps.key.toString(),
-    //       isFree: maps.value,
-    //     ),
-    //   );
-    // }
-
-    // print(x['p1']);
-    return x[id];
+      if (json.containsKey(id)) {
+        yield data;
+      }
+    }
   }
 }

@@ -3,7 +3,7 @@ import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/utils/parking_builder_vertical.dart';
 
 class FreeParkingMid extends StatelessWidget {
-  const FreeParkingMid({Key? key}) : super(key: key);
+  FreeParkingMid({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,33 +11,16 @@ class FreeParkingMid extends StatelessWidget {
       children: [
         Row(
           children: [
-            parkingBuilderVertical('p2'),
-            parkingBuilderVertical('p2'),
             parkingBuilderVertical('p12'),
-          ],
-        ),
-        Row(
-          children: [
-            parkingBuilderVertical('p13'),
-            parkingBuilderVertical('p2'),
-            parkingBuilderVertical('p2'),
-          ],
-        ),
-        SizedBox(
-          height: getPropertionateScreenHeight(20),
-        ),
-        Row(
-          children: [
-            parkingBuilderVertical('14'),
-            parkingBuilderVertical('p13'),
-            parkingBuilderVertical('p12'),
-          ],
-        ),
-        Row(
-          children: [
             parkingBuilderVertical('p13'),
             parkingBuilderVertical('p14'),
+          ],
+        ),
+        Row(
+          children: [
             parkingBuilderVertical('p15'),
+            parkingBuilderVertical('p16'),
+            parkingBuilderVertical('p17'),
           ],
         ),
         SizedBox(
@@ -45,9 +28,26 @@ class FreeParkingMid extends StatelessWidget {
         ),
         Row(
           children: [
-            parkingBuilderVertical('p16'),
-            parkingBuilderVertical('p17'),
             parkingBuilderVertical('p18'),
+            parkingBuilderVertical('p19'),
+            parkingBuilderVertical('p20'),
+          ],
+        ),
+        Row(
+          children: [
+            parkingBuilderVertical('p21'),
+            parkingBuilderVertical('p22'),
+            parkingBuilderVertical('p23'),
+          ],
+        ),
+        SizedBox(
+          height: getPropertionateScreenHeight(20),
+        ),
+        Row(
+          children: [
+            parkingBuilderVertical('p24'),
+            parkingBuilderVertical('p25'),
+            parkingBuilderVertical('p26'),
           ],
         ),
       ],

@@ -11,7 +11,7 @@
 //       children: [
 //         Row(
 //           children: [
-//             StreamBuilder<dynamic>(
+//             StreamBuilder<bool>(
 //               stream: DatabaseServices.parkings('p1'),
 //               builder: (_, snapshot) {
 //                 return Container();

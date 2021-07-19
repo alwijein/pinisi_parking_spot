@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
+import 'package:pinisi_parking_spot/screens/test.dart';
 import 'package:pinisi_parking_spot/screens/wrapper/wrapper.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => PageBloc(),
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Pinisi Parking Spot',
         theme: getTheme(),
         home: Wrapper(),
       ),
