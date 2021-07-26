@@ -17,6 +17,14 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       yield OnBoardingPage();
     } else if (event is GotoHomePage) {
       yield OnHomePage();
+    } else if (event is GotoSpotP1) {
+      yield OnSpotP1();
+    } else if (event is GotoSpotP2) {
+      yield OnSpotP2();
+    } else if (event is GotoSpotP3) {
+      yield OnSpotP3();
+    } else if (event is GotoSpotP4) {
+      yield OnSpotP4();
     }
   }
 }

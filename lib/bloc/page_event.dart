@@ -10,3 +10,11 @@ abstract class PageEvent extends Equatable {
 class GotoOnBoardingPage extends PageEvent {}
 
 class GotoHomePage extends PageEvent {}
+
+class GotoSpotP1 extends PageEvent {}
+
+class GotoSpotP2 extends PageEvent {}
+
+class GotoSpotP3 extends PageEvent {}
+
+class GotoSpotP4 extends PageEvent {}

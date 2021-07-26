@@ -1,7 +1,6 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
-import 'package:pinisi_parking_spot/shared/shared.dart';
+import 'package:pinisi_parking_spot/utils/parking_builder_horizontal.dart';
 
 class FreeParkingSide extends StatefulWidget {
   const FreeParkingSide({
@@ -13,40 +12,31 @@ class FreeParkingSide extends StatefulWidget {
 }
 
 class _FreeParkingSideState extends State<FreeParkingSide> {
-  final fb = FirebaseDatabase.instance;
-
   @override
   Widget build(BuildContext context) {
-    final ref = fb.reference();
-    var retrievedName;
     return Column(
       children: [
-        ElevatedButton(
-          onPressed: () {},
-          child: Text('Test'),
+        parkingBuilderHorizontal('p1'),
+        parkingBuilderHorizontal('p2'),
+        parkingBuilderHorizontal('p3'),
+        SizedBox(
+          height: getPropertionateScreenHeight(20),
         ),
-        Container(
-          width: getPropertionateScreenWidht(80),
-          height: getPropertionateScreenHeight(40),
-          decoration: BoxDecoration(
-            border: Border.all(width: 2, color: kPrimaryLightColor),
-          ),
-          child: Text(retrievedName ?? "null"),
+        parkingBuilderHorizontal('p3'),
+        parkingBuilderHorizontal('p4'),
+        parkingBuilderHorizontal('p5'),
+        SizedBox(
+          height: getPropertionateScreenHeight(20),
         ),
-        Container(
-          width: getPropertionateScreenWidht(80),
-          height: getPropertionateScreenHeight(40),
-          decoration: BoxDecoration(
-            border: Border.all(width: 2, color: kPrimaryLightColor),
-          ),
+        parkingBuilderHorizontal('p6'),
+        parkingBuilderHorizontal('p7'),
+        parkingBuilderHorizontal('p8'),
+        SizedBox(
+          height: getPropertionateScreenHeight(20),
         ),
-        Container(
-          width: getPropertionateScreenWidht(80),
-          height: getPropertionateScreenHeight(40),
-          decoration: BoxDecoration(
-            border: Border.all(width: 2, color: kPrimaryLightColor),
-          ),
-        ),
+        parkingBuilderHorizontal('p9'),
+        parkingBuilderHorizontal('p10'),
+        parkingBuilderHorizontal('p11'),
       ],
     );
   }

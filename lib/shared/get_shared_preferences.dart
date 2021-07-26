@@ -1,4 +1,4 @@
-import 'package:shared_preferences/shared_preferences.dart';
+part of 'shared.dart';
 
 class GetSharedPreferences {
   static firstOpen(bool isCheck) async {

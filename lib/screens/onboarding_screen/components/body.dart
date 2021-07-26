@@ -4,7 +4,6 @@ import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
-import 'package:pinisi_parking_spot/utils/get_shared_preferences.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);

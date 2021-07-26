@@ -12,3 +12,11 @@ class OnInitialPage extends PageState {}
 class OnBoardingPage extends PageState {}
 
 class OnHomePage extends PageState {}
+
+class OnSpotP1 extends PageState {}
+
+class OnSpotP2 extends PageState {}
+
+class OnSpotP3 extends PageState {}
+
+class OnSpotP4 extends PageState {}
