@@ -56,14 +56,11 @@ class _DefaultButtonOutlinedState extends State<DefaultButtonOutlined> {
               case 'Spot P3':
                 context.read<PageBloc>().add(GotoSpotP3());
                 break;
-              case 'Spot P4':
-                context.read<PageBloc>().add(GotoSpotP4());
-                break;
               default:
             }
           });
         },
-        items: <String>['Spot P1', 'Spot P2', 'Spot P3', 'Spot P4']
+        items: <String>['Spot P1', 'Spot P2', 'Spot P3']
             .map<DropdownMenuItem<String>>((String value) {
           return DropdownMenuItem<String>(
             value: value,

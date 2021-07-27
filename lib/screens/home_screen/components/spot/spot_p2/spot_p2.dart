@@ -18,8 +18,8 @@ class SpotP2 extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          // FreeParking01(),
-          // FreeParking02(),
+          FreeParking04(),
+          FreeParking05(),
         ],
       ),
     );

@@ -7,7 +7,6 @@ import 'package:pinisi_parking_spot/screens/components/default_button_outlined.d
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p1/spot_p1.dart';
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p2/spot_p2.dart';
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p3/spot_p3.dart';
-import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p4/spot_p4.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 
 class Body extends StatelessWidget {
@@ -62,9 +61,7 @@ class Body extends StatelessWidget {
                             ? SpotP2()
                             : (pageState is OnSpotP3)
                                 ? SpotP3()
-                                : (pageState is OnSpotP4)
-                                    ? SpotP4()
-                                    : SpotP1());
+                                : SpotP1());
                   },
                 )
               ],

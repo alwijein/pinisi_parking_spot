@@ -1,5 +1,6 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
@@ -28,8 +29,12 @@ class MyApp extends StatelessWidget {
           stream: Connectivity().onConnectivityChanged,
           builder: (_, snapshot) {
             if (snapshot.hasData) {
-              print(snapshot.data);
-              return Wrapper();
+              print(snapshot.connectionState);
+              if (snapshot.data == ConnectivityResult.none) {
+                return NoConnection();
+              } else {
+                return Wrapper();
+              }
             } else {
               return NoConnection();
             }

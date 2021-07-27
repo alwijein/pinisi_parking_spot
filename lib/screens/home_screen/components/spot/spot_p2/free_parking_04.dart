@@ -1,7 +1,7 @@
 part of 'spot_p2.dart';
 
-class FreeParking01 extends StatelessWidget {
-  FreeParking01({Key? key}) : super(key: key);
+class FreeParking04 extends StatelessWidget {
+  FreeParking04({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +17,20 @@ class FreeParking01 extends StatelessWidget {
               parkingBuilderVertical('p46'),
             ],
           ),
-          Row(
-            children: [
-              parkingBuilderHorizontal('p44'),
-              parkingBuilderHorizontal('p44'),
-              parkingBuilderHorizontal('p44'),
-            ],
+          SizedBox(
+            height: getPropertionateScreenHeight(20),
+          ),
+          parkingBuilderHorizontal('p46'),
+          SizedBox(
+            height: getPropertionateScreenHeight(20),
+          ),
+          parkingBuilderHorizontal('p46'),
+          SizedBox(
+            height: getPropertionateScreenHeight(20),
+          ),
+          parkingBuilderHorizontal('p46'),
+          SizedBox(
+            height: getPropertionateScreenHeight(20),
           ),
         ],
       ),
