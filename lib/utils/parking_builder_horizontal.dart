@@ -4,13 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/parking_box_horizontal.dart';
 import 'package:pinisi_parking_spot/services/services.dart';
+import 'package:pinisi_parking_spot/shared/shared.dart';
 
 StreamBuilder<Event?> parkingBuilderHorizontal(String id) {
   return StreamBuilder(
     stream: DatabaseServices.parkings(id),
     builder: (_, data) {
       if (data.hasData) {
-        print(data.data);
         if (data.data!.snapshot.value[id] == true) {
           return ParkingBoxHorizontal(
             value: Padding(
@@ -25,7 +25,7 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id) {
           return ParkingBoxHorizontal(
             value: Center(
               child: Text(
-                'kosong',
+                'Kosong',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -37,12 +37,9 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id) {
       }
       return ParkingBoxHorizontal(
         value: Center(
-          child: Text(
-            'no connect',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
+          child: SvgPicture.asset(
+            'assets/icons/connection.svg',
+            color: kPrimaryLightColor,
           ),
         ),
       );

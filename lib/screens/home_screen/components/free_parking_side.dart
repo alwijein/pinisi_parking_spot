@@ -22,21 +22,21 @@ class _FreeParkingSideState extends State<FreeParkingSide> {
         SizedBox(
           height: getPropertionateScreenHeight(20),
         ),
-        parkingBuilderHorizontal('p3'),
         parkingBuilderHorizontal('p4'),
         parkingBuilderHorizontal('p5'),
+        parkingBuilderHorizontal('p6'),
         SizedBox(
           height: getPropertionateScreenHeight(20),
         ),
-        parkingBuilderHorizontal('p6'),
         parkingBuilderHorizontal('p7'),
         parkingBuilderHorizontal('p8'),
+        parkingBuilderHorizontal('p9'),
         SizedBox(
           height: getPropertionateScreenHeight(20),
         ),
-        parkingBuilderHorizontal('p9'),
         parkingBuilderHorizontal('p10'),
         parkingBuilderHorizontal('p11'),
+        parkingBuilderHorizontal('p12'),
       ],
     );
   }

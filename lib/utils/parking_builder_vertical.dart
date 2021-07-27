@@ -17,22 +17,19 @@ StreamBuilder<Event?> parkingBuilderVertical(String id) {
               value: Padding(
             padding: EdgeInsets.all(getPropertionateScreenWidht(6)),
             child: SvgPicture.asset(
-              'assets/icons/car_top_view_vertical.svg',
+              'assets/icons/car_top_view_vertical_outlined.svg',
               fit: BoxFit.fitWidth,
             ),
           ));
         } else {
           return ParkingBoxVertical(
             value: Center(
-              child: RotatedBox(
-                quarterTurns: 1,
-                child: Text(
-                  'kosong',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+              child: Text(
+                'kosong',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
