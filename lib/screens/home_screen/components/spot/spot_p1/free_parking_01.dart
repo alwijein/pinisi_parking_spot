@@ -1,17 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:pinisi_parking_spot/config/size_config.dart';
-import 'package:pinisi_parking_spot/utils/parking_builder_horizontal.dart';
+part of 'spot_p1.dart';
 
-class FreeParkingSide extends StatefulWidget {
-  const FreeParkingSide({
-    Key? key,
-  }) : super(key: key);
+class FreeParking01 extends StatelessWidget {
+  const FreeParking01({Key? key}) : super(key: key);
 
-  @override
-  _FreeParkingSideState createState() => _FreeParkingSideState();
-}
-
-class _FreeParkingSideState extends State<FreeParkingSide> {
   @override
   Widget build(BuildContext context) {
     return Column(

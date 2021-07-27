@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:pinisi_parking_spot/config/size_config.dart';
-import 'package:pinisi_parking_spot/utils/parking_builder_vertical.dart';
+part of 'spot_p1.dart';
 
-class FreeParkingMid extends StatelessWidget {
-  FreeParkingMid({Key? key}) : super(key: key);
+class FreeParking02 extends StatelessWidget {
+  FreeParking02({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

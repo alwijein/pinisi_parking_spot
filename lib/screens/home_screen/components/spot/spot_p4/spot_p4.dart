@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pinisi_parking_spot/screens/home_screen/components/free_parking_mid.dart';
-import 'package:pinisi_parking_spot/screens/home_screen/components/free_parking_side.dart';
 
 class SpotP4 extends StatelessWidget {
   const SpotP4({
@@ -11,9 +9,7 @@ class SpotP4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        FreeParkingSide(),
-      ],
+      children: [],
     );
   }
 }

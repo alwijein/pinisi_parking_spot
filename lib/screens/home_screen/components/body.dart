@@ -4,10 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button_outlined.dart';
-import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p1.dart';
-import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p2.dart';
-import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p3.dart';
-import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p4.dart';
+import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p1/spot_p1.dart';
+import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p2/spot_p2.dart';
+import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p3/spot_p3.dart';
+import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p4/spot_p4.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 
 class Body extends StatelessWidget {

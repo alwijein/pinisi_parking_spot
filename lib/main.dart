@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
           stream: Connectivity().onConnectivityChanged,
           builder: (_, snapshot) {
             if (snapshot.hasData) {
+              print(snapshot.data);
               return Wrapper();
             } else {
               return NoConnection();
