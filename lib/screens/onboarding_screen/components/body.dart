@@ -58,7 +58,7 @@ class Body extends StatelessWidget {
                           text: 'Get Start',
                           press: () {
                             GetSharedPreferences.firstOpen(true);
-                            context.read<PageBloc>().add(GotoHomePage());
+                            context.read<PageBloc>().add(GotoSignInScreen());
                           }),
                     ],
                   ),

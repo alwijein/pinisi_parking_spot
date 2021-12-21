@@ -7,7 +7,13 @@ abstract class PageEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class GotoSplashScreen extends PageEvent {}
+
 class GotoOnBoardingPage extends PageEvent {}
+
+class GotoSignInScreen extends PageEvent {}
+
+class GotoSignUpScreen extends PageEvent {}
 
 class GotoHomePage extends PageEvent {}
 

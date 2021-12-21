@@ -7,32 +7,38 @@ class DefaultButton extends StatelessWidget {
     Key? key,
     required this.text,
     required this.press,
+    this.isInfinity = true,
   }) : super(key: key);
+
   final String text;
   final Function() press;
+  final bool isInfinity;
+
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle DefaultButton = ElevatedButton.styleFrom(
-      primary: kPrimaryLightColor,
+    final ButtonStyle flabuttonStyle = TextButton.styleFrom(
+      backgroundColor: kPrimaryLightColor,
+      padding: EdgeInsets.symmetric(
+        vertical: getPropertionateScreenWidht(8),
+        horizontal: getPropertionateScreenWidht(24),
+      ),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
       ),
     );
-
     return SizedBox(
-      width: getPropertionateScreenWidht(241),
-      height: getPropertionateScreenHeight(50),
-      child: ElevatedButton(
-        style: DefaultButton,
-        onPressed: press,
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: getPropertionateScreenWidht(20),
-            color: kPrimaryColor,
+        width: isInfinity ? double.infinity : null,
+        height: getPropertionateScreenHeight(56),
+        child: TextButton(
+          style: flabuttonStyle,
+          onPressed: press,
+          child: Text(
+            text,
+            style: TextStyle(
+              color: kPrimaryColor,
+              fontSize: getPropertionateScreenWidht(18),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
