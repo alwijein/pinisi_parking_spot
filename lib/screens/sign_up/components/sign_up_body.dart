@@ -38,7 +38,7 @@ class SignUpBody extends StatelessWidget {
                   subTitle: 'Sign Up',
                   title: 'Already have an account? ',
                   press: () =>
-                      context.read<PageBloc>().add(GotoSignUpScreen())),
+                      context.read<PageBloc>().add(GotoSignInScreen())),
             ],
           ),
         ),

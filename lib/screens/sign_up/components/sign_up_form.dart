@@ -19,6 +19,17 @@ class SignUpForm extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
+            'NIM',
+            style: primaryTextStyle.copyWith(
+              fontWeight: medium,
+              fontSize: 16,
+            ),
+          ),
+          RoundedInputField(
+            hintText: 'Your NIM',
+            press: () {},
+          ),
+          Text(
             'Email Address',
             style: primaryTextStyle.copyWith(
               fontWeight: medium,
