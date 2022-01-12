@@ -35,7 +35,7 @@ class _SignUpFormState extends State<SignUpForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'NIM',
+            'Nama',
             style: primaryTextStyle.copyWith(
               fontWeight: medium,
               fontSize: 16,
@@ -51,7 +51,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   color: kPrimaryLightColor,
                 ),
                 border: InputBorder.none,
-                hintText: "Your NIM",
+                hintText: "Masukkan nama",
                 hintStyle: TextStyle(
                   color: kSubtitleTextColor,
                 ),
@@ -77,7 +77,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           Text(
-            'Email Address',
+            'Alamat Email',
             style: primaryTextStyle.copyWith(
               fontWeight: medium,
               fontSize: 16,
@@ -93,7 +93,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   color: kPrimaryLightColor,
                 ),
                 border: InputBorder.none,
-                hintText: "Your email",
+                hintText: "Masukkan email",
                 hintStyle: TextStyle(
                   color: kSubtitleTextColor,
                 ),
@@ -129,7 +129,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           Text(
-            'Password',
+            'Kata Sandi',
             style: primaryTextStyle.copyWith(
               fontWeight: medium,
               fontSize: 16,
@@ -160,7 +160,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     color: kPrimaryColor,
                   ),
                 ),
-                hintText: "Your password",
+                hintText: "Masukkan kata sandi",
                 hintStyle: TextStyle(
                   color: kSubtitleTextColor,
                 ),

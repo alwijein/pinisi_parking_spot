@@ -36,7 +36,7 @@ class _SignInFormState extends State<SignInForm> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Email Address',
+            'Alamat Email',
             style: primaryTextStyle.copyWith(
               fontWeight: medium,
               fontSize: getPropertionateScreenWidht(16),
@@ -52,7 +52,7 @@ class _SignInFormState extends State<SignInForm> {
                   color: kPrimaryLightColor,
                 ),
                 border: InputBorder.none,
-                hintText: "Your email",
+                hintText: "Masukkan email",
                 hintStyle: TextStyle(
                   color: kSubtitleTextColor,
                 ),
@@ -91,7 +91,7 @@ class _SignInFormState extends State<SignInForm> {
             height: getPropertionateScreenHeight(16),
           ),
           Text(
-            'Password',
+            'Kata Sandi',
             style: primaryTextStyle.copyWith(
               fontWeight: medium,
               fontSize: getPropertionateScreenWidht(16),
@@ -122,7 +122,7 @@ class _SignInFormState extends State<SignInForm> {
                     color: kPrimaryColor,
                   ),
                 ),
-                hintText: "Your password",
+                hintText: "Masukkan kata sandi",
                 hintStyle: TextStyle(
                   color: kSubtitleTextColor,
                 ),

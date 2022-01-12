@@ -17,6 +17,7 @@ class UserServices {
     _userCollection.doc(users.id).set({
       'email': users.email,
       'name': users.name,
+      'role': users.role,
       'profilePicture': users.profilePicture ?? "",
     });
   }
@@ -28,6 +29,7 @@ class UserServices {
     return Users(
       id,
       data['email'],
+      role: data['role'],
       profilePicture: data['profilePicture'],
       name: data['name'],
     );

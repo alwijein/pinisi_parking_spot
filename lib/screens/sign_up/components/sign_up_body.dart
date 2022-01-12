@@ -25,14 +25,14 @@ class SignUpBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               HeaderText(
-                title: 'Sign Up',
-                subtitle: 'Register and Happy Parking',
+                title: 'Daftar',
+                subtitle: 'Daftar untuk melanjutkan',
               ),
               SignUpForm(),
               Spacer(),
               AskUserStatus(
-                  subTitle: 'Sign Up',
-                  title: 'Already have an account? ',
+                  subTitle: 'Masuk',
+                  title: 'Sudah punya akun? ',
                   press: () =>
                       context.read<PageBloc>().add(GotoSignInScreen())),
             ],
