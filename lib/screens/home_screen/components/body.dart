@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -7,6 +8,8 @@ import 'package:pinisi_parking_spot/screens/components/default_button_outlined.d
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p1/spot_p1.dart';
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p2/spot_p2.dart';
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p3/spot_p3.dart';
+import 'package:pinisi_parking_spot/services/services.dart';
+import 'package:pinisi_parking_spot/services/user_services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 
 class Body extends StatelessWidget {
@@ -22,31 +25,46 @@ class Body extends StatelessWidget {
             child: Column(
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Pinisi Parking Spot',
-                      style: TextStyle(
-                        color: kPrimaryLightColor,
-                        fontSize: 20.0,
+                    GestureDetector(
+                      onTap: () => context.read<PageBloc>().add(GotoSpotP1()),
+                      child: Image.asset(
+                        'assets/images/logo1.png',
+                        width: getPropertionateScreenWidht(150),
                       ),
                     ),
-                    DefaultButtonOutlined(text: 'Spot', press: () {}),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Entry',
-                      style: TextStyle(
-                        color: kPrimaryLightColor,
-                        fontSize: getPropertionateScreenWidht(20),
-                      ),
-                    ),
-                    SvgPicture.asset(
-                      'assets/icons/arrow_down_icon.svg',
-                      color: kPrimaryLightColor,
+                    Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () => AuthServices.signOut(),
+                          child: Container(
+                            color: kPrimaryColor,
+                            child: Row(
+                              children: [
+                                Text(
+                                  'Logout',
+                                  style: TextStyle(
+                                      color: kAlertColor,
+                                      fontWeight: medium,
+                                      fontSize:
+                                          getPropertionateScreenWidht(18)),
+                                ),
+                                SizedBox(
+                                  width: getPropertionateScreenWidht(10),
+                                ),
+                                SvgPicture.asset(
+                                    'assets/icons/logout_icon.svg'),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: getPropertionateScreenHeight(30),
+                        ),
+                        DefaultButtonOutlined(text: 'Spot', press: () {}),
+                      ],
                     ),
                   ],
                 ),

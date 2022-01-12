@@ -5,8 +5,7 @@ class AuthServices {
 
   // Fugnsi Untuk Melakukan SignUp
 
-  static Future<SingInSingUpResult> signUp(
-      String email, String password, String name) async {
+  static Future<bool> signUp(String email, String password, String name) async {
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -21,27 +20,26 @@ class AuthServices {
 
       await UserServices.updateUser(user);
 
-      return SingInSingUpResult(users: user);
+      return true;
 
       // ...
 
     } catch (e, s) {
-      return SingInSingUpResult(message: e.toString().split(']')[1]);
+      return false;
     }
   }
 
   // Fugnsi Untuk Melakukan SignIn
 
-  static Future<SingInSingUpResult?> signIn(
-      String email, String password) async {
+  static Future<bool> signIn(String email, String password) async {
     try {
       UserCredential authCredential = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
 
       Users? users = await authCredential.user!.fromFireStore();
-      return SingInSingUpResult(users: users);
+      return true;
     } catch (e) {
-      return SingInSingUpResult(message: e.toString().split(']')[1]);
+      return false;
     }
   }
 

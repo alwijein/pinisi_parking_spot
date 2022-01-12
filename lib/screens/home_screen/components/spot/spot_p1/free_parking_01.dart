@@ -7,27 +7,27 @@ class FreeParking01 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        parkingBuilderHorizontal('p1'),
-        parkingBuilderHorizontal('p2'),
-        parkingBuilderHorizontal('p3'),
+        parkingBuilderHorizontal('1'),
+        parkingBuilderHorizontal('2'),
+        parkingBuilderHorizontal('3'),
         SizedBox(
           height: getPropertionateScreenHeight(20),
         ),
-        parkingBuilderHorizontal('p4'),
-        parkingBuilderHorizontal('p5'),
-        parkingBuilderHorizontal('p6'),
+        parkingBuilderHorizontal('4'),
+        parkingBuilderHorizontal('5'),
+        parkingBuilderHorizontal('6'),
         SizedBox(
           height: getPropertionateScreenHeight(20),
         ),
-        parkingBuilderHorizontal('p7'),
-        parkingBuilderHorizontal('p8'),
-        parkingBuilderHorizontal('p9'),
+        parkingBuilderHorizontal('7'),
+        parkingBuilderHorizontal('8'),
+        parkingBuilderHorizontal('9'),
         SizedBox(
           height: getPropertionateScreenHeight(20),
         ),
-        parkingBuilderHorizontal('p10'),
-        parkingBuilderHorizontal('p11'),
-        parkingBuilderHorizontal('p12'),
+        parkingBuilderHorizontal('10'),
+        parkingBuilderHorizontal('11'),
+        parkingBuilderHorizontal('12'),
       ],
     );
   }

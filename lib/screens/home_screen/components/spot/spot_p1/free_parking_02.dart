@@ -9,33 +9,16 @@ class FreeParking02 extends StatelessWidget {
       children: [
         Row(
           children: [
-            parkingBuilderVertical('p13'),
-            parkingBuilderVertical('p14'),
-            parkingBuilderVertical('p15'),
+            parkingBuilderVertical('13'),
+            parkingBuilderVertical('14'),
+            parkingBuilderVertical('15'),
           ],
         ),
         Row(
           children: [
-            parkingBuilderVertical('p16'),
-            parkingBuilderVertical('p17'),
-            parkingBuilderVertical('p18'),
-          ],
-        ),
-        SizedBox(
-          height: getPropertionateScreenHeight(20),
-        ),
-        Row(
-          children: [
-            parkingBuilderVertical('p19'),
-            parkingBuilderVertical('p20'),
-            parkingBuilderVertical('p21'),
-          ],
-        ),
-        Row(
-          children: [
-            parkingBuilderVertical('p22'),
-            parkingBuilderVertical('p23'),
-            parkingBuilderVertical('p24'),
+            parkingBuilderVertical('16'),
+            parkingBuilderVertical('17'),
+            parkingBuilderVertical('18'),
           ],
         ),
         SizedBox(
@@ -43,9 +26,26 @@ class FreeParking02 extends StatelessWidget {
         ),
         Row(
           children: [
-            parkingBuilderVertical('p25'),
-            parkingBuilderVertical('p26'),
-            parkingBuilderVertical('p27'),
+            parkingBuilderVertical('19'),
+            parkingBuilderVertical('20'),
+            parkingBuilderVertical('21'),
+          ],
+        ),
+        Row(
+          children: [
+            parkingBuilderVertical('22'),
+            parkingBuilderVertical('23'),
+            parkingBuilderVertical('24'),
+          ],
+        ),
+        SizedBox(
+          height: getPropertionateScreenHeight(20),
+        ),
+        Row(
+          children: [
+            parkingBuilderVertical('25'),
+            parkingBuilderVertical('26'),
+            parkingBuilderVertical('27'),
           ],
         ),
       ],

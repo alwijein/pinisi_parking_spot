@@ -16,8 +16,11 @@ class RoundedInputField extends StatelessWidget {
   final Function() press;
   final bool isWrap;
   final double? sizeWidth;
+
   @override
   Widget build(BuildContext context) {
+    final TextEditingController username = new TextEditingController();
+
     return TextFieldContainer(
       isWrapSize: isWrap,
       sizeWidht: sizeWidth,

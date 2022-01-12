@@ -28,14 +28,6 @@ class SignInBody extends StatelessWidget {
                 subtitle: "Sign In to Continue",
               ),
               SignInForm(),
-              DefaultButton(
-                text: 'Login',
-                press: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return HomeScreen();
-                  }));
-                },
-              ),
               Spacer(),
               AskUserStatus(
                 title: "Don't have an account? ",

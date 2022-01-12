@@ -29,10 +29,6 @@ class SignUpBody extends StatelessWidget {
                 subtitle: 'Register and Happy Parking',
               ),
               SignUpForm(),
-              DefaultButton(
-                text: 'Sign Up',
-                press: () {},
-              ),
               Spacer(),
               AskUserStatus(
                   subTitle: 'Sign Up',

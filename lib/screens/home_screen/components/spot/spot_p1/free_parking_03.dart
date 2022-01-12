@@ -9,33 +9,16 @@ class FreeParking03 extends StatelessWidget {
       children: [
         Row(
           children: [
-            parkingBuilderVertical('p28'),
-            parkingBuilderVertical('p29'),
-            parkingBuilderVertical('p30'),
+            parkingBuilderVertical('28'),
+            parkingBuilderVertical('29'),
+            parkingBuilderVertical('30'),
           ],
         ),
         Row(
           children: [
-            parkingBuilderVertical('p31'),
-            parkingBuilderVertical('p32'),
-            parkingBuilderVertical('p34'),
-          ],
-        ),
-        SizedBox(
-          height: getPropertionateScreenHeight(20),
-        ),
-        Row(
-          children: [
-            parkingBuilderVertical('p35'),
-            parkingBuilderVertical('p36'),
-            parkingBuilderVertical('p37'),
-          ],
-        ),
-        Row(
-          children: [
-            parkingBuilderVertical('p38'),
-            parkingBuilderVertical('p39'),
-            parkingBuilderVertical('p40'),
+            parkingBuilderVertical('31'),
+            parkingBuilderVertical('32'),
+            parkingBuilderVertical('34'),
           ],
         ),
         SizedBox(
@@ -43,10 +26,27 @@ class FreeParking03 extends StatelessWidget {
         ),
         Row(
           children: [
-            parkingBuilderVertical('p41'),
-            parkingBuilderVertical('p42'),
-            parkingBuilderVertical('p43'),
-            parkingBuilderVertical('p43'),
+            parkingBuilderVertical('35'),
+            parkingBuilderVertical('36'),
+            parkingBuilderVertical('37'),
+          ],
+        ),
+        Row(
+          children: [
+            parkingBuilderVertical('38'),
+            parkingBuilderVertical('39'),
+            parkingBuilderVertical('40'),
+          ],
+        ),
+        SizedBox(
+          height: getPropertionateScreenHeight(20),
+        ),
+        Row(
+          children: [
+            parkingBuilderVertical('41'),
+            parkingBuilderVertical('42'),
+            parkingBuilderVertical('43'),
+            parkingBuilderVertical('43'),
           ],
         ),
       ],

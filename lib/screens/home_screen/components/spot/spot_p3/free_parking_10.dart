@@ -12,16 +12,16 @@ class FreeParking10 extends StatelessWidget {
         children: [
           Row(
             children: [
-              parkingBuilderVertical('p13'),
-              parkingBuilderVertical('p14'),
-              parkingBuilderVertical('p15'),
+              parkingBuilderVertical('89'),
+              parkingBuilderVertical('90'),
+              parkingBuilderVertical('91'),
             ],
           ),
           Row(
             children: [
-              parkingBuilderVertical('p16'),
-              parkingBuilderVertical('p17'),
-              parkingBuilderVertical('p18'),
+              parkingBuilderVertical('92'),
+              parkingBuilderVertical('93'),
+              parkingBuilderVertical('94'),
             ],
           ),
           SizedBox(
@@ -32,9 +32,9 @@ class FreeParking10 extends StatelessWidget {
           ),
           Row(
             children: [
-              parkingBuilderVertical('p25'),
-              parkingBuilderVertical('p26'),
-              parkingBuilderVertical('p27'),
+              parkingBuilderVertical('95'),
+              parkingBuilderVertical('96'),
+              parkingBuilderVertical('97'),
             ],
           ),
         ],

@@ -15,7 +15,7 @@ class OnSignInScreen extends PageState {}
 
 class OnSignUpScreen extends PageState {}
 
-class OnBoardingPage extends PageState {}
+// class OnBoardingPage extends PageState {}
 
 class OnHomePage extends PageState {}
 

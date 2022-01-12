@@ -10,7 +10,7 @@ class DefaultButton extends StatelessWidget {
     this.isInfinity = true,
   }) : super(key: key);
 
-  final String text;
+  final Widget text;
   final Function() press;
   final bool isInfinity;
 
@@ -32,13 +32,7 @@ class DefaultButton extends StatelessWidget {
         child: TextButton(
           style: flabuttonStyle,
           onPressed: press,
-          child: Text(
-            text,
-            style: TextStyle(
-              color: kPrimaryColor,
-              fontSize: getPropertionateScreenWidht(18),
-            ),
-          ),
+          child: text,
         ));
   }
 }
