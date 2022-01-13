@@ -7,12 +7,14 @@ import 'package:pinisi_parking_spot/screens/components/parking_box_vertical.dart
 import 'package:pinisi_parking_spot/services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 
-StreamBuilder<Event?> parkingBuilderVertical(String id) {
+StreamBuilder<Event?> parkingBuilderVertical(String id, String role) {
+  final DBref = FirebaseDatabase.instance.reference();
+
   return StreamBuilder(
     stream: DatabaseServices.parkings(id),
     builder: (_, data) {
       if (data.hasData) {
-        if (data.data!.snapshot.value[id] == true) {
+        if (data.data!.snapshot.value[id] == true && role == 'user') {
           return ParkingBoxVertical(
               value: Padding(
             padding: EdgeInsets.all(getPropertionateScreenWidht(6)),
@@ -21,7 +23,7 @@ StreamBuilder<Event?> parkingBuilderVertical(String id) {
               fit: BoxFit.fitWidth,
             ),
           ));
-        } else {
+        } else if (data.data!.snapshot.value[id] == false && role == 'user') {
           return ParkingBoxVertical(
             value: Center(
               child: RotatedBox(
@@ -29,6 +31,41 @@ StreamBuilder<Event?> parkingBuilderVertical(String id) {
                 child: Text(
                   'kosong',
                   textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
+
+        // check jika role sebagai admin
+        if (data.data!.snapshot.value[id] == true && role == "admin") {
+          return ParkingBoxVertical(
+            value: GestureDetector(
+              onTap: () {
+                DBref.child('Parking').update({id: false});
+              },
+              child: Padding(
+                padding: EdgeInsets.all(getPropertionateScreenWidht(5)),
+                child: SvgPicture.asset(
+                  'assets/icons/car_top_view_horizontal.svg',
+                  fit: BoxFit.fitWidth,
+                ),
+              ),
+            ),
+          );
+        } else if (data.data!.snapshot.value[id] == false && role == 'admin') {
+          return ParkingBoxVertical(
+            value: GestureDetector(
+              onTap: () {
+                DBref.child('Parking').update({id: true});
+              },
+              child: Center(
+                child: Text(
+                  'Kosong',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

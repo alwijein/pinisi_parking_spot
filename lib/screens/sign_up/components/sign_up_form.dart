@@ -56,7 +56,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   color: kSubtitleTextColor,
                 ),
               ),
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.name,
               controller: nim,
               onChanged: (value) {
                 if (value.isNotEmpty && errors.contains(kNimNullError)) {

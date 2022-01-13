@@ -5,35 +5,38 @@ class FreeParking05 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: getPropertionateScreenWidht(10)),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              parkingBuilderVertical('50'),
-              parkingBuilderVertical('51'),
-              parkingBuilderVertical('52'),
-            ],
-          ),
-          SizedBox(
-            height: getPropertionateScreenHeight(20),
-          ),
-          parkingBuilderHorizontal('53'),
-          SizedBox(
-            height: getPropertionateScreenHeight(20),
-          ),
-          parkingBuilderHorizontal('54'),
-          SizedBox(
-            height: getPropertionateScreenHeight(20),
-          ),
-          parkingBuilderHorizontal('55'),
-          SizedBox(
-            height: getPropertionateScreenHeight(20),
-          ),
-        ],
-      ),
-    );
+    return BlocBuilder<UserBloc, UserState>(builder: (context, userState) {
+      String userRole = userState is UserLoaded ? userState.users.role : "user";
+      return Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: getPropertionateScreenWidht(10)),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                parkingBuilderVertical('50', userRole),
+                parkingBuilderVertical('51', userRole),
+                parkingBuilderVertical('52', userRole),
+              ],
+            ),
+            SizedBox(
+              height: getPropertionateScreenHeight(20),
+            ),
+            parkingBuilderHorizontal('53', userRole),
+            SizedBox(
+              height: getPropertionateScreenHeight(20),
+            ),
+            parkingBuilderHorizontal('54', userRole),
+            SizedBox(
+              height: getPropertionateScreenHeight(20),
+            ),
+            parkingBuilderHorizontal('55', userRole),
+            SizedBox(
+              height: getPropertionateScreenHeight(20),
+            ),
+          ],
+        ),
+      );
+    });
   }
 }

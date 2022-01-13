@@ -23,5 +23,6 @@ class Users extends Equatable {
         email,
         name,
         profilePicture,
+        role,
       ];
 }

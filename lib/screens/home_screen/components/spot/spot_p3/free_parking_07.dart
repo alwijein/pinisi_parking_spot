@@ -5,40 +5,43 @@ class FreeParking07 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: getPropertionateScreenWidht(10)),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              parkingBuilderVertical('13'),
-              parkingBuilderVertical('14'),
-              parkingBuilderVertical('15'),
-            ],
-          ),
-          Row(
-            children: [
-              parkingBuilderVertical('16'),
-              parkingBuilderVertical('17'),
-              parkingBuilderVertical('18'),
-            ],
-          ),
-          SizedBox(
-            height: getPropertionateScreenHeight(20),
-          ),
-          SizedBox(
-            height: getPropertionateScreenHeight(20),
-          ),
-          Row(
-            children: [
-              parkingBuilderVertical('25'),
-              parkingBuilderVertical('26'),
-              parkingBuilderVertical('27'),
-            ],
-          ),
-        ],
-      ),
-    );
+    return BlocBuilder<UserBloc, UserState>(builder: (context, userState) {
+      String userRole = userState is UserLoaded ? userState.users.role : "user";
+      return Padding(
+        padding:
+            EdgeInsets.symmetric(horizontal: getPropertionateScreenWidht(10)),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                parkingBuilderVertical('60', userRole),
+                parkingBuilderVertical('61', userRole),
+                parkingBuilderVertical('62', userRole),
+              ],
+            ),
+            Row(
+              children: [
+                parkingBuilderVertical('63', userRole),
+                parkingBuilderVertical('64', userRole),
+                parkingBuilderVertical('65', userRole),
+              ],
+            ),
+            SizedBox(
+              height: getPropertionateScreenHeight(20),
+            ),
+            SizedBox(
+              height: getPropertionateScreenHeight(20),
+            ),
+            Row(
+              children: [
+                parkingBuilderVertical('66', userRole),
+                parkingBuilderVertical('67', userRole),
+                parkingBuilderVertical('68', userRole),
+              ],
+            ),
+          ],
+        ),
+      );
+    });
   }
 }
