@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/ask_user_status.dart';
@@ -23,9 +24,14 @@ class SignInBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HeaderText(
-                title: "Masuk",
-                subtitle: "Masuk untuk melanjutkan",
+              Center(
+                child: Image.asset(
+                  'assets/images/splash_screen.png',
+                  width: getPropertionateScreenWidht(150),
+                ),
+              ),
+              SizedBox(
+                height: getPropertionateScreenWidht(20),
               ),
               SignInForm(),
               Spacer(),

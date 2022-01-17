@@ -60,14 +60,14 @@ FontWeight bold = FontWeight.w700;
 // Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-const String kEmailNullError = "Please Enter your email";
-const String kInvalidEmailError = "Please Enter Valid Email";
-const String kPassNullError = "Please Enter your password";
+const String kEmailNullError = "Email Tidak Boleh Kosong";
+const String kInvalidEmailError = "Tolong Masukkan Email Dengan Benar";
+const String kPassNullError = "Password Tidak Boleh Kosong";
 const String kShortPassError = "Password is too short";
 const String kMatchPassError = "Passwords don't match";
-const String kNamelNullError = "Please Enter your name";
-const String kNimNullError = "Please Enter your NIM";
-const String kAddressNullError = "Please Enter your address";
+const String kNamelNullError = "Nama Tidak Boleh Kosong";
+const String kNimNullError = "Nama Tidak Boleh Kosong";
+const String kAddressNullError = "Alamat Tidak Boleh Kosong";
 
 // padding
 double defaultPadding = getPropertionateScreenWidht(24);

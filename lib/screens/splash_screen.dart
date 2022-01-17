@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: SafeArea(
         child: Center(
           child: Image.asset(
-            'assets/images/logo2.png',
+            'assets/images/splash_screen.png',
             width: getPropertionateScreenWidht(200),
           ),
         ),

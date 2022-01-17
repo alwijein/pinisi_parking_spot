@@ -215,7 +215,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   press: () {})
               : DefaultButton(
                   text: Text(
-                    'Sign Up',
+                    'Daftar',
                     style: TextStyle(
                       color: kPrimaryColor,
                       fontSize: getPropertionateScreenWidht(18),

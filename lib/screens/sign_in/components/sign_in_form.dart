@@ -177,7 +177,7 @@ class _SignInFormState extends State<SignInForm> {
                   press: () {})
               : DefaultButton(
                   text: Text(
-                    'Sign Up',
+                    'Masuk',
                     style: TextStyle(
                       color: kPrimaryColor,
                       fontSize: getPropertionateScreenWidht(18),

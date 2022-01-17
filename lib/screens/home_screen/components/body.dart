@@ -44,7 +44,7 @@ class Body extends StatelessWidget {
                             child: Row(
                               children: [
                                 Text(
-                                  'Logout',
+                                  'Keluar',
                                   style: TextStyle(
                                       color: kAlertColor,
                                       fontWeight: medium,

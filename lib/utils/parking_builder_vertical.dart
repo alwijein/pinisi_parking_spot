@@ -1,5 +1,4 @@
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
@@ -51,7 +50,7 @@ StreamBuilder<Event?> parkingBuilderVertical(String id, String role) {
               child: Padding(
                 padding: EdgeInsets.all(getPropertionateScreenWidht(5)),
                 child: SvgPicture.asset(
-                  'assets/icons/car_top_view_horizontal.svg',
+                  'assets/icons/car_top_view_vertical.svg',
                   fit: BoxFit.fitWidth,
                 ),
               ),
@@ -64,11 +63,15 @@ StreamBuilder<Event?> parkingBuilderVertical(String id, String role) {
                 DBref.child('Parking').update({id: true});
               },
               child: Center(
-                child: Text(
-                  'Kosong',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+                child: RotatedBox(
+                  quarterTurns: 1,
+                  child: Text(
+                    'kosong',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),

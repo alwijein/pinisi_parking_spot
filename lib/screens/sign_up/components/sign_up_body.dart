@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/ask_user_status.dart';
-import 'package:pinisi_parking_spot/screens/components/default_button.dart';
-import 'package:pinisi_parking_spot/screens/components/header_text.dart';
-import 'package:pinisi_parking_spot/screens/sign_in/sign_in.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:pinisi_parking_spot/screens/sign_up/components/sign_up_form.dart';
@@ -24,9 +21,14 @@ class SignUpBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HeaderText(
-                title: 'Daftar',
-                subtitle: 'Daftar untuk melanjutkan',
+              Center(
+                child: Image.asset(
+                  'assets/images/splash_screen.png',
+                  width: getPropertionateScreenWidht(150),
+                ),
+              ),
+              SizedBox(
+                height: getPropertionateScreenWidht(20),
               ),
               SignUpForm(),
               Spacer(),

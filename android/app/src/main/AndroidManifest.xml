@@ -1,7 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pinisi_parking_spot">
+	<uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="pinisi_parking_spot"
+        android:label="Pinisi Parking Spot"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
