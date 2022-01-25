@@ -14,29 +14,29 @@ class FreeParking07 extends StatelessWidget {
           children: [
             Row(
               children: [
-                parkingBuilderVertical('60', userRole),
-                parkingBuilderVertical('61', userRole),
-                parkingBuilderVertical('62', userRole),
-              ],
-            ),
-            Row(
-              children: [
-                parkingBuilderVertical('63', userRole),
-                parkingBuilderVertical('64', userRole),
-                parkingBuilderVertical('65', userRole),
-              ],
-            ),
-            SizedBox(
-              height: getPropertionateScreenHeight(20),
-            ),
-            SizedBox(
-              height: getPropertionateScreenHeight(20),
-            ),
-            Row(
-              children: [
                 parkingBuilderVertical('66', userRole),
                 parkingBuilderVertical('67', userRole),
                 parkingBuilderVertical('68', userRole),
+              ],
+            ),
+            Row(
+              children: [
+                parkingBuilderVertical('69', userRole),
+                parkingBuilderVertical('70', userRole),
+                parkingBuilderVertical('71', userRole),
+              ],
+            ),
+            SizedBox(
+              height: getPropertionateScreenHeight(20),
+            ),
+            SizedBox(
+              height: getPropertionateScreenHeight(20),
+            ),
+            Row(
+              children: [
+                parkingBuilderVertical('72', userRole),
+                parkingBuilderVertical('73', userRole),
+                parkingBuilderVertical('74', userRole),
               ],
             ),
           ],

@@ -27,7 +27,7 @@ class SpotP3 extends StatelessWidget {
             builder: (_, data) {
               if (data.hasData) {
                 int count = 0;
-                for (int i = 56; i <= 97; i++) {
+                for (int i = 56; i <= 101; i++) {
                   if (data.data!.snapshot.value[i.toString()] == true) {
                     count++;
                   }
@@ -44,7 +44,7 @@ class SpotP3 extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(10)),
                   child: Text(
-                    count.toString() + " / 12",
+                    count.toString() + " / 46",
                     style: TextStyle(
                       color: kPrimaryLightColor,
                       fontSize: getPropertionateScreenWidht(16),

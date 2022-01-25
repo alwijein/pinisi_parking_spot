@@ -25,15 +25,12 @@ StreamBuilder<Event?> parkingBuilderVertical(String id, String role) {
         } else if (data.data!.snapshot.value[id] == false && role == 'user') {
           return ParkingBoxVertical(
             value: Center(
-              child: RotatedBox(
-                quarterTurns: 1,
-                child: Text(
-                  'kosong',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+              child: Text(
+                id,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -63,15 +60,12 @@ StreamBuilder<Event?> parkingBuilderVertical(String id, String role) {
                 DBref.child('Parking').update({id: true});
               },
               child: Center(
-                child: RotatedBox(
-                  quarterTurns: 1,
-                  child: Text(
-                    'kosong',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+                child: Text(
+                  id,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),

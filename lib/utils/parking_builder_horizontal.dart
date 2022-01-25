@@ -29,7 +29,7 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
           return ParkingBoxHorizontal(
             value: Center(
               child: Text(
-                'Kosong',
+                id,
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -63,7 +63,7 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
               },
               child: Center(
                 child: Text(
-                  'Kosong',
+                  id,
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
