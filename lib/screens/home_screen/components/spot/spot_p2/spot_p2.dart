@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinisi_parking_spot/bloc/user_bloc/user_bloc.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
+import 'package:pinisi_parking_spot/screens/components/default_button_outlined.dart';
 import 'package:pinisi_parking_spot/services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 import 'package:pinisi_parking_spot/utils/parking_builder_horizontal.dart';
@@ -20,6 +21,16 @@ class SpotP2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Align(
+          alignment: Alignment.centerRight,
+          child: DefaultButtonOutlined(
+            text: 'Spot',
+            press: () {},
+          ),
+        ),
+        SizedBox(
+          height: getPropertionateScreenHeight(20),
+        ),
         StreamBuilder<Event?>(
             stream: DatabaseServices.countParking(),
             builder: (_, data) {

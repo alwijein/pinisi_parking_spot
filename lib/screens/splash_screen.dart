@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 2),
-        () => context.read<PageBloc>().add(GotoSignInScreen()));
+        () => context.read<PageBloc>().add(GotoOnBoardingPage()));
   }
 
   Widget build(BuildContext context) {

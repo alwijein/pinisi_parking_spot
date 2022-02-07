@@ -10,7 +10,9 @@ import 'package:pinisi_parking_spot/screens/sign_in/components/sign_in_form.dart
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignInBody extends StatelessWidget {
-  const SignInBody({Key? key}) : super(key: key);
+  const SignInBody({Key? key, required this.isAdmin}) : super(key: key);
+
+  final bool isAdmin;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class SignInBody extends StatelessWidget {
               SizedBox(
                 height: getPropertionateScreenWidht(20),
               ),
-              SignInForm(),
+              SignInForm(isAdmin: isAdmin),
               Spacer(),
               AskUserStatus(
                 title: "Tidak punya akun? ",

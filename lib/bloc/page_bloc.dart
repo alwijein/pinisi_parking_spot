@@ -15,6 +15,10 @@ class PageBloc extends Bloc<PageEvent, PageState> {
   ) async* {
     if (event is GotoSplashScreen) {
       yield OnSplashScreen();
+    } else if (event is GotoOnBoardingPage) {
+      yield OnBoardingPage();
+    } else if (event is GotoAdminScreen) {
+      yield OnAdminScreen();
     } else if (event is GotoSignInScreen) {
       yield OnSignInScreen();
     } else if (event is GotoSignUpScreen) {
@@ -23,6 +27,8 @@ class PageBloc extends Bloc<PageEvent, PageState> {
       //   yield OnBoardingPage();
     } else if (event is GotoHomePage) {
       yield OnHomePage();
+    } else if (event is GotoSpotP0) {
+      yield OnSpotP0();
     } else if (event is GotoSpotP1) {
       yield OnSpotP1();
     } else if (event is GotoSpotP2) {

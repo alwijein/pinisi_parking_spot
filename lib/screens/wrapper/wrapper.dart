@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
 import 'package:pinisi_parking_spot/bloc/user_bloc/user_bloc.dart';
 import 'package:pinisi_parking_spot/screens/home_screen/home_screen.dart';
+import 'package:pinisi_parking_spot/screens/onboarding_screen/onboarding_screen.dart';
 import 'package:pinisi_parking_spot/screens/sign_in/sign_in.dart';
 import 'package:pinisi_parking_spot/screens/sign_up/sign_up.dart';
 import 'package:pinisi_parking_spot/screens/splash_screen.dart';
@@ -33,11 +34,19 @@ class Wrapper extends StatelessWidget {
     return BlocBuilder<PageBloc, PageState>(
       builder: (_, pageState) => (pageState is OnSplashScreen)
           ? SplashScreen()
-          : (pageState is OnSignInScreen)
-              ? SignIn()
-              : (pageState is OnSignUpScreen)
-                  ? SignUp()
-                  : HomeScreen(),
+          : (pageState is OnBoardingPage)
+              ? OnboardingScreen()
+              : (pageState is OnAdminScreen)
+                  ? SignIn(
+                      isAdmin: true,
+                    )
+                  : (pageState is OnSignInScreen)
+                      ? SignIn(
+                          isAdmin: false,
+                        )
+                      : (pageState is OnSignUpScreen)
+                          ? SignUp()
+                          : HomeScreen(),
     );
   }
 }
