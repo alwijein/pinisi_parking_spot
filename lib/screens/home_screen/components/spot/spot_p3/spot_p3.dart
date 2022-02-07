@@ -27,7 +27,7 @@ class SpotP3 extends StatelessWidget {
             builder: (_, data) {
               if (data.hasData) {
                 int count = 0;
-                for (int i = 56; i <= 101; i++) {
+                for (int i = 56; i <= 100; i++) {
                   if (data.data!.snapshot.value[i.toString()] == true) {
                     count++;
                   }
