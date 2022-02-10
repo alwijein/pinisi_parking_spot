@@ -19,6 +19,8 @@ class UserServices {
       'name': users.name,
       'role': users.role,
       'profilePicture': users.profilePicture ?? "",
+      'nomorUnik': users.nomorUnik,
+      'status': users.status,
     });
   }
 
@@ -26,12 +28,11 @@ class UserServices {
     DocumentSnapshot snapshot = await _userCollection.doc(id).get();
 
     var data = snapshot.data() as Map;
-    return Users(
-      id,
-      data['email'],
-      role: data['role'],
-      profilePicture: data['profilePicture'],
-      name: data['name'],
-    );
+    return Users(id, data['email'],
+        role: data['role'],
+        profilePicture: data['profilePicture'],
+        name: data['name'],
+        nomorUnik: data['nomorUnik'],
+        status: data['status']);
   }
 }

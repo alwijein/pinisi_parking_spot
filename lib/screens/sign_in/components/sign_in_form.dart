@@ -243,6 +243,7 @@ class _SignInFormState extends State<SignInForm> {
                     }
                     setState(() {
                       isLoading = false;
+                      Navigator.of(context).pop();
                     });
                   }),
         ],

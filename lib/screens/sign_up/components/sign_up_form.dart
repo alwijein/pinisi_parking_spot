@@ -5,6 +5,8 @@ import 'package:pinisi_parking_spot/screens/components/loading_button.dart';
 import 'package:pinisi_parking_spot/screens/components/text_field_container.dart';
 import 'package:pinisi_parking_spot/services/user_services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
+import 'package:pinisi_parking_spot/utils/selected_for_field.dart';
+import 'package:select_form_field/select_form_field.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({
@@ -16,9 +18,11 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-  TextEditingController nim = new TextEditingController();
+  TextEditingController nama = new TextEditingController();
   TextEditingController email = new TextEditingController();
   TextEditingController password = new TextEditingController();
+  TextEditingController nomorUnik = new TextEditingController();
+  TextEditingController status = new TextEditingController();
 
   bool isLoading = false;
   bool showPass = true;
@@ -41,41 +45,7 @@ class _SignUpFormState extends State<SignUpForm> {
               fontSize: 16,
             ),
           ),
-          TextFieldContainer(
-            isWrapSize: false,
-            child: TextFormField(
-              style: primaryTextStyle,
-              decoration: InputDecoration(
-                icon: Icon(
-                  Icons.person,
-                  color: kPrimaryLightColor,
-                ),
-                border: InputBorder.none,
-                hintText: "Masukkan nama",
-                hintStyle: TextStyle(
-                  color: kSubtitleTextColor,
-                ),
-              ),
-              keyboardType: TextInputType.name,
-              controller: nim,
-              onChanged: (value) {
-                if (value.isNotEmpty && errors.contains(kNimNullError)) {
-                  setState(() {
-                    errors.remove(kNimNullError);
-                  });
-                }
-                return null;
-              },
-              validator: (value) {
-                if (value!.isEmpty && !errors.contains(kNimNullError)) {
-                  setState(() {
-                    errors.add(kNimNullError);
-                  });
-                }
-                return null;
-              },
-            ),
-          ),
+          buildFieldInput('nama', 'Masukkan Nama', nama, Icons.person),
           Text(
             'Alamat Email',
             style: primaryTextStyle.copyWith(
@@ -83,51 +53,24 @@ class _SignUpFormState extends State<SignUpForm> {
               fontSize: 16,
             ),
           ),
-          TextFieldContainer(
-            isWrapSize: false,
-            child: TextFormField(
-              style: primaryTextStyle,
-              decoration: InputDecoration(
-                icon: Icon(
-                  Icons.mail,
-                  color: kPrimaryLightColor,
-                ),
-                border: InputBorder.none,
-                hintText: "Masukkan email",
-                hintStyle: TextStyle(
-                  color: kSubtitleTextColor,
-                ),
-              ),
-              keyboardType: TextInputType.emailAddress,
-              controller: email,
-              onChanged: (value) {
-                if (value.isNotEmpty && errors.contains(kAddressNullError)) {
-                  setState(() {
-                    errors.remove(kAddressNullError);
-                  });
-                } else if (emailValidatorRegExp.hasMatch(value) &&
-                    errors.contains(kInvalidEmailError)) {
-                  setState(() {
-                    errors.remove(kInvalidEmailError);
-                  });
-                }
-                return null;
-              },
-              validator: (value) {
-                if (value!.isEmpty && !errors.contains(kAddressNullError)) {
-                  setState(() {
-                    errors.add(kAddressNullError);
-                  });
-                } else if (!emailValidatorRegExp.hasMatch(value) &&
-                    !errors.contains(kInvalidEmailError)) {
-                  setState(() {
-                    errors.add(kInvalidEmailError);
-                  });
-                }
-                return null;
-              },
+          buildFieldInput('email', 'Masukkan Email', email, Icons.email),
+          Text(
+            'NO. NIK / NIP / NIM / SIM',
+            style: primaryTextStyle.copyWith(
+              fontWeight: medium,
+              fontSize: 16,
             ),
           ),
+          buildFieldInput('no', 'Masukkan Nomor Atau Nim', nomorUnik,
+              Icons.format_indent_increase_outlined),
+          Text(
+            'Status',
+            style: primaryTextStyle.copyWith(
+              fontWeight: medium,
+              fontSize: 16,
+            ),
+          ),
+          buildFieldStatus(status),
           Text(
             'Kata Sandi',
             style: primaryTextStyle.copyWith(
@@ -135,67 +78,7 @@ class _SignUpFormState extends State<SignUpForm> {
               fontSize: 16,
             ),
           ),
-          TextFieldContainer(
-            isWrapSize: false,
-            child: TextFormField(
-              obscureText: showPass,
-              style: primaryTextStyle,
-              decoration: InputDecoration(
-                icon: Icon(
-                  Icons.lock,
-                  color: kPrimaryLightColor,
-                ),
-                suffix: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      if (showPass == true) {
-                        showPass = false;
-                      } else {
-                        showPass = true;
-                      }
-                    });
-                  },
-                  child: Icon(
-                    showPass ? Icons.visibility_off : Icons.visibility,
-                    color: kPrimaryColor,
-                  ),
-                ),
-                hintText: "Masukkan kata sandi",
-                hintStyle: TextStyle(
-                  color: kSubtitleTextColor,
-                ),
-                border: InputBorder.none,
-              ),
-              onChanged: (value) {
-                if (value.isNotEmpty && errors.contains(kPassNullError)) {
-                  setState(() {
-                    errors.remove(kPassNullError);
-                  });
-                } else if (value.length >= 8 &&
-                    errors.contains(kShortPassError)) {
-                  setState(() {
-                    errors.remove(kShortPassError);
-                  });
-                }
-                return null;
-              },
-              keyboardType: TextInputType.visiblePassword,
-              validator: (value) {
-                if (value!.isEmpty && !errors.contains(kPassNullError)) {
-                  setState(() {
-                    errors.add(kPassNullError);
-                  });
-                } else if (value.length < 8 &&
-                    !errors.contains(kShortPassError)) {
-                  setState(() {
-                    errors.add(kShortPassError);
-                  });
-                }
-                return null;
-              },
-              controller: password,
-            ),
-          ),
+          buildFieldPass(),
           SizedBox(
             height: getPropertionateScreenHeight(20),
           ),
@@ -231,7 +114,12 @@ class _SignUpFormState extends State<SignUpForm> {
                       });
                     }
                     if (await AuthServices.signUp(
-                        email.text, password.text, nim.text)) {
+                      email.text,
+                      password.text,
+                      nama.text,
+                      nomorUnik.text,
+                      status.text,
+                    )) {
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -248,10 +136,156 @@ class _SignUpFormState extends State<SignUpForm> {
                     }
                     setState(() {
                       isLoading = false;
+                      Navigator.of(context).pop();
                     });
                   }),
         ],
       ),
+    );
+  }
+
+  TextFieldContainer buildFieldPass() {
+    return TextFieldContainer(
+      isWrapSize: false,
+      child: TextFormField(
+        obscureText: showPass,
+        style: primaryTextStyle,
+        decoration: InputDecoration(
+          icon: Icon(
+            Icons.lock,
+            color: kPrimaryLightColor,
+          ),
+          suffix: GestureDetector(
+            onTap: () {
+              setState(() {
+                if (showPass == true) {
+                  showPass = false;
+                } else {
+                  showPass = true;
+                }
+              });
+            },
+            child: Icon(
+              showPass ? Icons.visibility_off : Icons.visibility,
+              color: kPrimaryColor,
+            ),
+          ),
+          hintText: "Masukkan kata sandi",
+          hintStyle: TextStyle(
+            color: kSubtitleTextColor,
+          ),
+          border: InputBorder.none,
+        ),
+        onChanged: (value) {
+          if (value.isNotEmpty && errors.contains(kPassNullError)) {
+            setState(() {
+              errors.remove(kPassNullError);
+            });
+          } else if (value.length >= 8 && errors.contains(kShortPassError)) {
+            setState(() {
+              errors.remove(kShortPassError);
+            });
+          }
+          return null;
+        },
+        keyboardType: TextInputType.visiblePassword,
+        validator: (value) {
+          if (value!.isEmpty && !errors.contains(kPassNullError)) {
+            setState(() {
+              errors.add(kPassNullError);
+            });
+          } else if (value.length < 8 && !errors.contains(kShortPassError)) {
+            setState(() {
+              errors.add(kShortPassError);
+            });
+          }
+          return null;
+        },
+        controller: password,
+      ),
+    );
+  }
+
+  TextFieldContainer buildFieldStatus(TextEditingController input) {
+    return TextFieldContainer(
+      isWrapSize: false,
+      child: SelectFormField(
+        style: primaryTextStyle,
+        decoration: InputDecoration(
+          border: InputBorder.none,
+          icon: Icon(
+            Icons.account_tree_outlined,
+            color: kPrimaryLightColor,
+          ),
+        ),
+        items: SelectedForField.items,
+        onChanged: (val) => input.text = val,
+        onSaved: (val) => input.text = val!,
+      ),
+    );
+  }
+
+  TextFieldContainer buildFieldInput(String type, String hintText,
+      TextEditingController inputController, IconData icon) {
+    return TextFieldContainer(
+      isWrapSize: false,
+      child: TextFormField(
+          style: primaryTextStyle,
+          decoration: InputDecoration(
+            icon: Icon(
+              icon,
+              color: kPrimaryLightColor,
+            ),
+            border: InputBorder.none,
+            hintText: hintText,
+            hintStyle: TextStyle(
+              color: kSubtitleTextColor,
+            ),
+          ),
+          keyboardType: TextInputType.name,
+          controller: inputController,
+          onChanged: (value) {
+            if (type == 'name') {
+              if (value.isNotEmpty && errors.contains(kNimNullError)) {
+                setState(() {
+                  errors.remove(kNimNullError);
+                });
+              } else if (type == 'email') {
+                if (value.isNotEmpty && errors.contains(kAddressNullError)) {
+                  setState(() {
+                    errors.remove(kAddressNullError);
+                  });
+                } else if (emailValidatorRegExp.hasMatch(value) &&
+                    errors.contains(kInvalidEmailError)) {
+                  setState(() {
+                    errors.remove(kInvalidEmailError);
+                  });
+                }
+              }
+            }
+            return null;
+          },
+          validator: (value) {
+            if (type == 'name') {
+              if (value!.isEmpty && !errors.contains(kNimNullError)) {
+                setState(() {
+                  errors.add(kNimNullError);
+                });
+              }
+            } else if (type == 'email') {
+              if (value!.isEmpty && !errors.contains(kAddressNullError)) {
+                setState(() {
+                  errors.add(kAddressNullError);
+                });
+              } else if (!emailValidatorRegExp.hasMatch(value) &&
+                  !errors.contains(kInvalidEmailError)) {
+                setState(() {
+                  errors.add(kInvalidEmailError);
+                });
+              }
+            }
+            return null;
+          }),
     );
   }
 }
