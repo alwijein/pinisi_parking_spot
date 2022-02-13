@@ -3,6 +3,7 @@ import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button.dart';
 import 'package:pinisi_parking_spot/screens/components/loading_button.dart';
 import 'package:pinisi_parking_spot/screens/components/text_field_container.dart';
+import 'package:pinisi_parking_spot/screens/otp_screen/otp_screen.dart';
 import 'package:pinisi_parking_spot/services/user_services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 import 'package:pinisi_parking_spot/utils/selected_for_field.dart';
@@ -113,13 +114,16 @@ class _SignUpFormState extends State<SignUpForm> {
                         _formKey.currentState!.save();
                       });
                     }
-                    if (await AuthServices.signUp(
-                      email.text,
-                      password.text,
-                      nama.text,
-                      nomorUnik.text,
-                      status.text,
-                    )) {
+                    if (errors.length == 1) {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) {
+                        return OtpScreen(
+                            email: email.text,
+                            password: password.text,
+                            nama: nama.text,
+                            nomorUnik: nomorUnik.text,
+                            status: status.text);
+                      }));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -136,7 +140,6 @@ class _SignUpFormState extends State<SignUpForm> {
                     }
                     setState(() {
                       isLoading = false;
-                      Navigator.of(context).pop();
                     });
                   }),
         ],

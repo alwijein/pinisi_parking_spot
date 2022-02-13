@@ -73,3 +73,11 @@ const String kIsNotUser = "Anda Bukan User Silahkan Login Di Admin";
 
 // padding
 double defaultPadding = getPropertionateScreenWidht(24);
+
+final otpInputDecoration = InputDecoration(
+  contentPadding: EdgeInsets.symmetric(
+    vertical: getPropertionateScreenWidht(15),
+  ),
+  focusColor: kPrimaryColor,
+  border: InputBorder.none,
+);
