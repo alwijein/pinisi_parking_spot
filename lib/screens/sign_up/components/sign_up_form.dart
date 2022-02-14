@@ -116,7 +116,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     }
                     if (errors.length == 1) {
                       Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (_) {
+                          .pushReplacement(MaterialPageRoute(builder: (_) {
                         return OtpScreen(
                             email: email.text,
                             password: password.text,

@@ -6,6 +6,7 @@ import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/parking_box_horizontal.dart';
 import 'package:pinisi_parking_spot/services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
+import 'package:select_dialog/select_dialog.dart';
 
 StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
   final DBref = FirebaseDatabase.instance.reference();
@@ -59,6 +60,12 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
           return ParkingBoxHorizontal(
             value: GestureDetector(
               onTap: () {
+                SelectDialog.showModal(
+                  _,
+                  label: 'Simple Example',
+                  selectedValue: 'novalue',
+                  items: List.generate(10, (index) => "item $index"),
+                );
                 DBref.child('Parking').update({id: true});
               },
               child: Center(

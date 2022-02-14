@@ -227,6 +227,7 @@ class _SignInFormState extends State<SignInForm> {
                     }
                     if (stopSignIn == false &&
                         await AuthServices.signIn(email.text, password.text)) {
+                      Navigator.of(context).pop();
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
@@ -243,7 +244,6 @@ class _SignInFormState extends State<SignInForm> {
                     }
                     setState(() {
                       isLoading = false;
-                      Navigator.of(context).pop();
                     });
                   }),
         ],

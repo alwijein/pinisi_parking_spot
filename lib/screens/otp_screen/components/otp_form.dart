@@ -45,6 +45,8 @@ class _OtpFormState extends State<OtpForm> {
     emailAuth = new EmailAuth(sessionName: "Pinisi Parking Spot");
 
     pin2FocusNode = FocusNode();
+
+    sendOtp();
   }
 
   @override
@@ -88,10 +90,10 @@ class _OtpFormState extends State<OtpForm> {
     }
   }
 
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
-    bool isLoading = true;
-
     return Form(
       child: Column(
         children: [
@@ -252,46 +254,62 @@ class _OtpFormState extends State<OtpForm> {
               ),
             ],
           ),
-          DefaultButton(
-              text: Text(
-                'Lanjutkan',
-                style: TextStyle(
-                  color: kPrimaryColor,
-                  fontSize: getPropertionateScreenWidht(18),
-                ),
-              ),
-              press: () async {
-                verifyOtp();
-                if (verify == false) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      backgroundColor: Colors.red,
-                      content: Text('Verifikasi Gagal'),
+          isLoading
+              ? DefaultButton(
+                  text: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: getPropertionateScreenWidht(30),
                     ),
-                  );
-                } else if (verify == true) {
-                  if (await AuthServices.signUp(
-                    widget.email,
-                    widget.password,
-                    widget.nama,
-                    widget.nomorUnik,
-                    widget.status,
-                  )) {
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: Colors.red,
-                        content: Text('Login Gagal'),
+                    child: CircularProgressIndicator(
+                      strokeWidth: 3,
+                      valueColor: AlwaysStoppedAnimation(
+                        kPrimaryColor,
                       ),
-                    );
-                  }
-                }
-                setState(() {
-                  isLoading = false;
-                  Navigator.of(context).pop();
-                  verifyOtp();
-                });
-              }),
+                    ),
+                  ),
+                  press: () {})
+              : DefaultButton(
+                  text: Text(
+                    'Lanjutkan',
+                    style: TextStyle(
+                      color: kPrimaryColor,
+                      fontSize: getPropertionateScreenWidht(18),
+                    ),
+                  ),
+                  press: () async {
+                    setState(() {
+                      isLoading = true;
+                      verifyOtp();
+                    });
+                    if (verify == false) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.red,
+                          content: Text('Verifikasi Gagal'),
+                        ),
+                      );
+                    } else if (verify == true) {
+                      if (await AuthServices.signUp(
+                        widget.email,
+                        widget.password,
+                        widget.nama,
+                        widget.nomorUnik,
+                        widget.status,
+                      )) {
+                        Navigator.of(context).pop();
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: Colors.red,
+                            content: Text('Login Gagal'),
+                          ),
+                        );
+                      }
+                    }
+                    setState(() {
+                      isLoading = false;
+                    });
+                  }),
         ],
       ),
     );

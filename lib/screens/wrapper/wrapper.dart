@@ -39,7 +39,7 @@ class Wrapper extends StatelessWidget {
               ? OnboardingScreen()
               : (pageState is OnHomePage)
                   ? HomeScreen()
-                  : SplashScreen(),
+                  : HomeScreen(),
     );
   }
 }
