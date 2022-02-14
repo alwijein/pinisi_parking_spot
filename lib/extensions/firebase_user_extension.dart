@@ -5,6 +5,7 @@ extension FirebaseUserExtension on User {
     String name = 'no name',
     String nomorUnik = '',
     String status = '',
+    String parking = '',
     String role = 'user',
   }) =>
       Users(this.uid, this.email ?? "",

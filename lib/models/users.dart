@@ -2,7 +2,7 @@ part of 'models.dart';
 
 class Users extends Equatable {
   final String id, email, name, role, nomorUnik, status;
-  final String? profilePicture;
+  final String? profilePicture, parking;
 
   Users(
     this.id,
@@ -11,6 +11,7 @@ class Users extends Equatable {
     required this.name,
     required this.nomorUnik,
     required this.status,
+    this.parking,
     this.profilePicture,
   });
 
@@ -26,5 +27,6 @@ class Users extends Equatable {
         name,
         profilePicture,
         role,
+        parking,
       ];
 }
