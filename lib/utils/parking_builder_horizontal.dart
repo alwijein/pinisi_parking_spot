@@ -1,14 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pinisi_parking_spot/config/size_config.dart';
-import 'package:pinisi_parking_spot/models/models.dart';
-import 'package:pinisi_parking_spot/screens/components/parking_box_horizontal.dart';
-import 'package:pinisi_parking_spot/services/services.dart';
-import 'package:pinisi_parking_spot/services/user_services/services.dart';
-import 'package:pinisi_parking_spot/shared/shared.dart';
-import 'package:select_dialog/select_dialog.dart';
+part of 'utils.dart';
 
 StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
   final DBref = FirebaseDatabase.instance.reference();
@@ -65,29 +55,13 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
                             return "Email: ${users.email} \nStatus: ${users.status}\n";
                           },
                         );
-                        _userCollection
-                            .doc(idActive)
-                            .set({'parking': ''}, SetOptions(merge: true));
 
+                        if (idActive != "") {
+                          _userCollection
+                              .doc(idActive)
+                              .set({'parking': ' '}, SetOptions(merge: true));
+                        }
                         DBref.child('Parking').update({id: false});
-                      },
-                      onTap: () {
-                        SelectDialog.showModal(
-                          _,
-                          label: 'User Yang Parkir Sekarang',
-                          selectedValue: 'novalue',
-                          loadingBuilder: (context) =>
-                              CircularProgressIndicator(),
-                          items: List.generate(
-                            index,
-                            (index) {
-                              Users users = snapshot.data![index];
-
-                              return "Email: ${users.email} \nStatus: ${users.status}\n";
-                            },
-                          ),
-                          showSearchBox: false,
-                        );
                       },
                       child: Padding(
                         padding: EdgeInsets.all(getPropertionateScreenWidht(5)),
@@ -118,20 +92,24 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
                     value: GestureDetector(
                       onTap: () {
                         int index = snapshot.data!.length;
+                        String isSelect = '';
                         SelectDialog.showModal(_,
                             label: 'Daftar Pengguna',
                             selectedValue: 'novalue',
-                            items: List.generate(
-                              index,
-                              (index) =>
-                                  "${snapshot.data![index].id}\n${snapshot.data![index].email}",
-                            ), onChange: (String seleceted) {
-                          var tempt = seleceted.split('\n');
-                          print(seleceted);
+                            items: List.generate(index, (index) {
+                              Users user = snapshot.data![index];
+                              return "$index. ${user.email}";
+                            }), onChange: (String seleceted) {
+                          var tempt = seleceted.split('.');
+                          String x = tempt[0];
+                          int y = int.parse(x);
+                          isSelect = snapshot.data![y].id;
+                          print(tempt);
                           _userCollection
-                              .doc(tempt[0])
+                              .doc(isSelect)
                               .set({'parking': id}, SetOptions(merge: true));
                         });
+
                         DBref.child('Parking').update({id: true});
                       },
                       child: Center(

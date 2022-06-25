@@ -7,9 +7,17 @@ extension FirebaseUserExtension on User {
     String status = '',
     String parking = '',
     String role = 'user',
+    String platNomor = '',
   }) =>
-      Users(this.uid, this.email ?? "",
-          name: name, role: role, nomorUnik: nomorUnik, status: status);
+      Users(
+        this.uid,
+        this.email ?? "",
+        name: name,
+        role: role,
+        nomorUnik: nomorUnik,
+        status: status,
+        platNomor: platNomor,
+      );
 
   Future<Users?> fromFireStore() async => await UserServices.getUser(this.uid);
 }

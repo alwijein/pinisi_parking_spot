@@ -6,15 +6,16 @@ import 'package:pinisi_parking_spot/shared/shared.dart';
 import 'dart:core';
 
 class OtpScreenBody extends StatelessWidget {
-  const OtpScreenBody(
-      {Key? key,
-      required this.email,
-      required this.password,
-      required this.nama,
-      required this.nomorUnik,
-      required this.status})
-      : super(key: key);
-  final String email, password, nama, nomorUnik, status;
+  const OtpScreenBody({
+    Key? key,
+    required this.email,
+    required this.password,
+    required this.nama,
+    required this.nomorUnik,
+    required this.status,
+    required this.platNomor,
+  }) : super(key: key);
+  final String email, password, nama, nomorUnik, status, platNomor;
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +46,13 @@ class OtpScreenBody extends StatelessWidget {
               height: getPropertionateScreenHeight(24),
             ),
             OtpForm(
-                email: email,
-                password: password,
-                nama: nama,
-                nomorUnik: nomorUnik,
-                status: status),
+              email: email,
+              password: password,
+              nama: nama,
+              nomorUnik: nomorUnik,
+              status: status,
+              platNomor: platNomor,
+            ),
           ],
         ),
       ),

@@ -22,6 +22,7 @@ class UserServices {
       'nomorUnik': users.nomorUnik,
       'status': users.status,
       'parking': users.parking,
+      'platNomor': users.platNomor,
     });
   }
 
@@ -38,6 +39,7 @@ class UserServices {
       nomorUnik: data['nomorUnik'],
       status: data['status'],
       parking: data['parking'],
+      platNomor: data['platNomor'],
     );
   }
 
@@ -45,7 +47,6 @@ class UserServices {
     List<Users> users = [];
     QuerySnapshot maps = await _userCollection.get();
 
-    int id = 0;
     for (var e in maps.docs) {
       users.add(
         Users(
@@ -56,9 +57,10 @@ class UserServices {
           name: e['name'],
           nomorUnik: e['nomorUnik'],
           status: e['status'],
+          parking: e['parking'],
+          platNomor: e['platNomor'],
         ),
       );
-      id++;
     }
     return users;
   }
@@ -77,6 +79,7 @@ class UserServices {
           name: e['name'],
           nomorUnik: e['nomorUnik'],
           status: e['status'],
+          platNomor: e['platNomor'],
         ),
       );
     }

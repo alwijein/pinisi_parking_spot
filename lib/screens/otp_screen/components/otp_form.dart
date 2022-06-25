@@ -13,11 +13,12 @@ class OtpForm extends StatefulWidget {
     required this.nama,
     required this.nomorUnik,
     required this.status,
+    required this.platNomor,
   }) : super(key: key);
 
   @override
   State<OtpForm> createState() => _OtpFormState();
-  final String email, password, nama, nomorUnik, status;
+  final String email, password, nama, nomorUnik, status, platNomor;
 }
 
 class _OtpFormState extends State<OtpForm> {
@@ -295,6 +296,7 @@ class _OtpFormState extends State<OtpForm> {
                         widget.nama,
                         widget.nomorUnik,
                         widget.status,
+                        widget.platNomor,
                       )) {
                         Navigator.of(context).pop();
                       } else {
