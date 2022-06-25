@@ -11,13 +11,17 @@ class OnInitialPage extends PageState {}
 
 class OnSplashScreen extends PageState {}
 
+class OnAdminScreen extends PageState {}
+
 class OnSignInScreen extends PageState {}
 
 class OnSignUpScreen extends PageState {}
 
-// class OnBoardingPage extends PageState {}
+class OnBoardingPage extends PageState {}
 
 class OnHomePage extends PageState {}
+
+class OnSpotP0 extends PageState {}
 
 class OnSpotP1 extends PageState {}
 

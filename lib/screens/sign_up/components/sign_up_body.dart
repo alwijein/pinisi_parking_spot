@@ -12,32 +12,28 @@ class SignUpBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.all(
-            getPropertionateScreenWidht(24),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Image.asset(
-                  'assets/images/splash_screen.png',
-                  width: getPropertionateScreenWidht(150),
+      child: SingleChildScrollView(
+        child: SizedBox(
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.all(
+              getPropertionateScreenWidht(24),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Image.asset(
+                    'assets/images/splash_screen.png',
+                    width: getPropertionateScreenWidht(150),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: getPropertionateScreenWidht(20),
-              ),
-              SignUpForm(),
-              Spacer(),
-              AskUserStatus(
-                  subTitle: 'Masuk',
-                  title: 'Sudah punya akun? ',
-                  press: () =>
-                      context.read<PageBloc>().add(GotoSignInScreen())),
-            ],
+                SizedBox(
+                  height: getPropertionateScreenWidht(20),
+                ),
+                SignUpForm(),
+              ],
+            ),
           ),
         ),
       ),

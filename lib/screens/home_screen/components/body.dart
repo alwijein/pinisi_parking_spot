@@ -1,14 +1,13 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button_outlined.dart';
+import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p0/spot_p0.dart';
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p1/spot_p1.dart';
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p2/spot_p2.dart';
 import 'package:pinisi_parking_spot/screens/home_screen/components/spot/spot_p3/spot_p3.dart';
-import 'package:pinisi_parking_spot/services/services.dart';
 import 'package:pinisi_parking_spot/services/user_services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 
@@ -29,7 +28,7 @@ class Body extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: () => context.read<PageBloc>().add(GotoSpotP1()),
+                      onTap: () => context.read<PageBloc>().add(GotoSpotP0()),
                       child: Image.asset(
                         'assets/images/logo1.png',
                         width: getPropertionateScreenWidht(150),
@@ -63,13 +62,9 @@ class Body extends StatelessWidget {
                         SizedBox(
                           height: getPropertionateScreenHeight(30),
                         ),
-                        DefaultButtonOutlined(text: 'Spot', press: () {}),
                       ],
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: getPropertionateScreenHeight(20),
                 ),
                 BlocBuilder<PageBloc, PageState>(
                   builder: (_, pageState) {
@@ -79,9 +74,9 @@ class Body extends StatelessWidget {
                             ? SpotP2()
                             : (pageState is OnSpotP3)
                                 ? SpotP3()
-                                : SpotP1());
+                                : SpotP0());
                   },
-                )
+                ),
               ],
             ),
           ),
