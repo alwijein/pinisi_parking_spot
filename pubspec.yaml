@@ -43,6 +43,7 @@ dependencies:
   email_auth: ^1.0.0
   search_choices: ^2.0.17
   select_dialog: ^2.0.0
+  flutter_easyrefresh: ^2.2.1
 
 dev_dependencies:
   flutter_test:

@@ -22,6 +22,7 @@ class _SignUpFormState extends State<SignUpForm> {
   TextEditingController password = new TextEditingController();
   TextEditingController nomorUnik = new TextEditingController();
   TextEditingController status = new TextEditingController();
+  TextEditingController platNomor = new TextEditingController();
 
   bool isLoading = false;
   bool showPass = true;
@@ -44,7 +45,7 @@ class _SignUpFormState extends State<SignUpForm> {
               fontSize: 16,
             ),
           ),
-          buildFieldInput('nama', 'Masukkan Nama', nama, Icons.person),
+          buildFieldInput('name', 'Masukkan Nama', nama, Icons.person),
           Text(
             'Alamat Email',
             style: primaryTextStyle.copyWith(
@@ -62,6 +63,15 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           buildFieldInput('no', 'Masukkan Nomor Atau Nim', nomorUnik,
               Icons.format_indent_increase_outlined),
+          Text(
+            'Nomor Plat',
+            style: primaryTextStyle.copyWith(
+              fontWeight: medium,
+              fontSize: 16,
+            ),
+          ),
+          buildFieldInput('nomor plat', 'Masukkan Nomor Plat', platNomor,
+              Icons.calendar_view_day_sharp),
           Text(
             'Status',
             style: primaryTextStyle.copyWith(
@@ -116,11 +126,13 @@ class _SignUpFormState extends State<SignUpForm> {
                       Navigator.of(context)
                           .pushReplacement(MaterialPageRoute(builder: (_) {
                         return OtpScreen(
-                            email: email.text,
-                            password: password.text,
-                            nama: nama.text,
-                            nomorUnik: nomorUnik.text,
-                            status: status.text);
+                          email: email.text,
+                          password: password.text,
+                          nama: nama.text,
+                          nomorUnik: nomorUnik.text,
+                          status: status.text,
+                          platNomor: platNomor.text,
+                        );
                       }));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(

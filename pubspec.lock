@@ -243,7 +243,18 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "7.3.3"
+=======
+    version: "7.2.0"
+  flutter_easyrefresh:
+    dependency: "direct main"
+    description:
+      name: flutter_easyrefresh
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
+>>>>>>> 00e68ad7930280609cffab0e9961f7569d1b8864
   flutter_launcher_icons:
     dependency: "direct main"
     description:

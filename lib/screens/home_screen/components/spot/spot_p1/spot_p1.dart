@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinisi_parking_spot/bloc/user_bloc/user_bloc.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button_outlined.dart';
+import 'package:pinisi_parking_spot/screens/home_screen/components/list_parking_button.dart';
 import 'package:pinisi_parking_spot/services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
-import 'package:pinisi_parking_spot/utils/parking_builder_horizontal.dart';
-import 'package:pinisi_parking_spot/utils/parking_builder_vertical.dart';
+import 'package:flutter_launcher_icons/utils.dart';
+import 'package:pinisi_parking_spot/utils/utils.dart';
 
 part 'free_parking_01.dart';
 part 'free_parking_02.dart';
@@ -22,12 +23,30 @@ class SpotP1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
-          alignment: Alignment.centerRight,
-          child: DefaultButtonOutlined(
-            text: 'Spot',
-            press: () {},
-          ),
+        SizedBox(
+          height: getPropertionateScreenHeight(20),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            BlocBuilder<UserBloc, UserState>(
+              builder: (context, userState) {
+                if (userState is UserLoaded) {
+                  if (userState.users.role == 'admin') {
+                    return ListParkingButton();
+                  } else {
+                    return SizedBox();
+                  }
+                } else {
+                  return Text('Error');
+                }
+              },
+            ),
+            DefaultButtonOutlined(
+              text: 'Spot',
+              press: () {},
+            ),
+          ],
         ),
         SizedBox(
           height: getPropertionateScreenHeight(20),

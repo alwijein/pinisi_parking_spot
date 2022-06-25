@@ -6,7 +6,7 @@ class AuthServices {
   // Fugnsi Untuk Melakukan SignUp
 
   static Future<bool> signUp(String email, String password, String name,
-      String nomorUnik, String status) async {
+      String nomorUnik, String status, String platNomor) async {
     try {
       UserCredential userCredential = await _auth
           .createUserWithEmailAndPassword(email: email, password: password);
@@ -17,6 +17,7 @@ class AuthServices {
         name: name,
         nomorUnik: nomorUnik,
         status: status,
+        platNomor: platNomor,
       );
 
       // ...
