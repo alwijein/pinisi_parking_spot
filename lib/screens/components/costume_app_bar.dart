@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button_outlined.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pinisi_parking_spot/main.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NoConnection extends StatelessWidget {
   NoConnection({Key? key}) : super(key: key);

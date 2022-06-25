@@ -27,7 +27,7 @@ class AuthServices {
 
       // ...
 
-    } catch (e, s) {
+    } catch (e) {
       return false;
     }
   }

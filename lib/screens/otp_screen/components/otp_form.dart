@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pinisi_parking_spot/config/auth_config.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button.dart';
 import 'package:pinisi_parking_spot/services/user_services/services.dart';
@@ -42,7 +43,9 @@ class _OtpFormState extends State<OtpForm> {
   @override
   void initState() {
     super.initState();
-    emailAuth = new EmailAuth(sessionName: "Pinisi Parking Spot");
+    emailAuth = new EmailAuth(sessionName: "PinisiParking");
+
+    emailAuth.config(remoteServerConfiguration);
 
     pin2FocusNode = FocusNode();
 

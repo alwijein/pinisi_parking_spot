@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinisi_parking_spot/screens/components/text_field_container.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 
