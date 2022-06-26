@@ -19,12 +19,14 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-  TextEditingController nama = new TextEditingController();
-  TextEditingController email = new TextEditingController();
-  TextEditingController password = new TextEditingController();
-  TextEditingController nomorUnik = new TextEditingController();
+  TextEditingController nama = new TextEditingController(text: 'alwi');
+  TextEditingController email =
+      new TextEditingController(text: 'alwijein@gmail.com');
+  TextEditingController password = new TextEditingController(text: '12345678');
+  TextEditingController nomorUnik =
+      new TextEditingController(text: '13020180226');
   TextEditingController status = new TextEditingController();
-  TextEditingController platNomor = new TextEditingController();
+  TextEditingController platNomor = new TextEditingController(text: '1002');
 
   bool isLoading = false;
   bool showPass = true;

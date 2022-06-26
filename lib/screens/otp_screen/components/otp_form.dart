@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pinisi_parking_spot/config/email_config.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button.dart';
 import 'package:pinisi_parking_spot/services/user_services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 import 'package:email_auth/email_auth.dart';
+import 'package:email_otp/email_otp.dart';
 
 class OtpForm extends StatefulWidget {
   const OtpForm({
@@ -35,15 +37,27 @@ class _OtpFormState extends State<OtpForm> {
   TextEditingController input5 = TextEditingController();
   TextEditingController input6 = TextEditingController();
 
-  late EmailAuth emailAuth;
-
   bool verify = false;
   String otp = '';
 
+  // late EmailAuth emailAuth;
+  Email_OTP emailOtp = Email_OTP();
   @override
   void initState() {
     super.initState();
-    emailAuth = new EmailAuth(sessionName: "Pinisi Parking Spot");
+
+    // emailAuth = EmailAuth(sessionName: "Pinisi Parking Spot");
+
+    // emailAuth.config({
+    //   "server": "https://email-auth-nodes.herokuapp.com",
+    //   "serverKey": "D6faVz",
+    // });
+
+    emailOtp.setConfig(
+      appEmail: "alwijein@gmail.com",
+      appName: "Pinisi Parking Spot",
+      userEmail: widget.email,
+    );
 
     pin2FocusNode = FocusNode();
 
@@ -63,33 +77,36 @@ class _OtpFormState extends State<OtpForm> {
   }
 
   void sendOtp() async {
-    bool result = await emailAuth.sendOtp(recipientMail: widget.email);
+    // bool result =
+    //     await emailAuth.sendOtp(recipientMail: widget.email, otpLength: 5);
+
+    bool result = await emailOtp.sendOTP();
 
     if (result) {
       print('Succes');
     } else {
-      print('failed');
+      print('failed ${widget.email}');
     }
   }
 
-  void verifyOtp() {
-    otp = input1.text +
-        input2.text +
-        input3.text +
-        input4.text +
-        input5.text +
-        input6.text;
+  // void verifyOtp() {
+  //   otp = input1.text +
+  //       input2.text +
+  //       input3.text +
+  //       input4.text +
+  //       input5.text +
+  //       input6.text;
 
-    var result =
-        emailAuth.validateOtp(recipientMail: widget.email, userOtp: otp);
-    if (result) {
-      print('succes: ' + otp);
-      verify = true;
-    } else {
-      print('failed: ' + otp);
-      verify = false;
-    }
-  }
+  //   var result =
+  //       emailAuth.validateOtp(recipientMail: widget.email, userOtp: otp);
+  //   if (result) {
+  //     print('succes: ' + otp);
+  //     verify = true;
+  //   } else {
+  //     print('failed: ' + otp);
+  //     verify = false;
+  //   }
+  // }
 
   bool isLoading = false;
 
@@ -245,7 +262,7 @@ class _OtpFormState extends State<OtpForm> {
                 style: primaryTextStyle,
               ),
               GestureDetector(
-                onTap: () => sendOtp(),
+                onTap: () {},
                 child: Text(
                   'Kirim Ulang  ',
                   style: primaryTextStyle.copyWith(
@@ -280,16 +297,22 @@ class _OtpFormState extends State<OtpForm> {
                   press: () async {
                     setState(() {
                       isLoading = true;
-                      verifyOtp();
+                      // verifyOtp();
                     });
-                    if (verify == false) {
+                    otp = input1.text +
+                        input2.text +
+                        input3.text +
+                        input4.text +
+                        input5.text +
+                        input6.text;
+                    if (await emailOtp.verifyOTP(otp: otp) == false) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           backgroundColor: Colors.red,
                           content: Text('Verifikasi Gagal'),
                         ),
                       );
-                    } else if (verify == true) {
+                    } else if (await emailOtp.verifyOTP(otp: otp) == true) {
                       if (await AuthServices.signUp(
                         widget.email,
                         widget.password,

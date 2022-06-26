@@ -31,6 +31,8 @@ class SpotP1 extends StatelessWidget {
           children: [
             BlocBuilder<UserBloc, UserState>(
               builder: (context, userState) {
+                print('sucesd');
+
                 if (userState is UserLoaded) {
                   if (userState.users.role == 'admin') {
                     return ListParkingButton();

@@ -45,6 +45,7 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
                   return ParkingBoxHorizontal(
                     value: GestureDetector(
                       onDoubleTap: () {
+                        print('success');
                         List.generate(
                           index,
                           (index) {
@@ -91,6 +92,8 @@ StreamBuilder<Event?> parkingBuilderHorizontal(String id, String role) {
                   return ParkingBoxHorizontal(
                     value: GestureDetector(
                       onTap: () {
+                        print('success');
+
                         int index = snapshot.data!.length;
                         String isSelect = '';
                         SelectDialog.showModal(_,
