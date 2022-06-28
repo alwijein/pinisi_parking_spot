@@ -11,8 +11,8 @@ class ParkingBoxVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getPropertionateScreenWidht(50),
-      height: getPropertionateScreenHeight(90),
+      width: getPropertionateScreenWidht(34),
+      height: getPropertionateScreenHeight(64),
       decoration: BoxDecoration(
         border: Border.all(width: 2, color: kPrimaryLightColor),
       ),

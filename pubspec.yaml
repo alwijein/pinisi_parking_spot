@@ -21,30 +21,31 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
   bloc: ^7.0.0
+  cloud_firestore: ^3.1.5
   connectivity: ^3.0.6
   cupertino_icons: ^1.0.2
   dotted_border: ^2.0.0
   dotted_decoration: ^2.0.0
+  email_auth: ^1.0.0
+  email_otp: ^1.0.1
   equatable: ^2.0.3
+  firebase_auth: ^3.3.4
   firebase_core: ^1.4.0
   firebase_database: ^7.1.2
+  flutter:
+    sdk: flutter
   flutter_bloc: ^7.0.1
+  flutter_easyrefresh: ^2.2.1
   flutter_launcher_icons: ^0.9.1
   flutter_svg: ^0.22.0
-  shared_preferences: ^2.0.6
   google_fonts: ^2.1.0
-  firebase_auth: ^3.3.4
-  cloud_firestore: ^3.1.5
   provider: ^6.0.1
-  select_form_field: ^2.2.0
-  email_auth: ^1.0.0
+  qr_flutter: ^4.0.0
   search_choices: ^2.0.17
   select_dialog: ^2.0.0
-  flutter_easyrefresh: ^2.2.1
-  email_otp: ^1.0.1
+  select_form_field: ^2.2.0
+  shared_preferences: ^2.0.6
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button.dart';
-import 'package:pinisi_parking_spot/screens/components/loading_button.dart';
 import 'package:pinisi_parking_spot/screens/components/text_field_container.dart';
 import 'package:pinisi_parking_spot/screens/otp_screen/otp_screen.dart';
-import 'package:pinisi_parking_spot/services/user_services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 import 'package:pinisi_parking_spot/utils/selected_for_field.dart';
 import 'package:select_form_field/select_form_field.dart';
@@ -19,14 +17,14 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
-  TextEditingController nama = new TextEditingController(text: 'alwi');
+  TextEditingController nama = new TextEditingController();
   TextEditingController email =
-      new TextEditingController(text: 'alwijein@gmail.com');
-  TextEditingController password = new TextEditingController(text: '12345678');
+      new TextEditingController();
+  TextEditingController password = new TextEditingController();
   TextEditingController nomorUnik =
-      new TextEditingController(text: '13020180226');
+      new TextEditingController();
   TextEditingController status = new TextEditingController();
-  TextEditingController platNomor = new TextEditingController(text: '1002');
+  TextEditingController platNomor = new TextEditingController();
 
   bool isLoading = false;
   bool showPass = true;

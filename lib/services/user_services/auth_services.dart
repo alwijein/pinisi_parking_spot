@@ -28,7 +28,7 @@ class AuthServices {
 
       // ...
 
-    } catch (e, s) {
+    } catch (e) {
       return false;
     }
   }
@@ -51,6 +51,7 @@ class AuthServices {
 
   static Future<void> signOut() async {
     await _auth.signOut();
+    contextGlobal.read<UserBloc>().add(SignOut());
   }
 
   // Fungsi untuk melakukan pengecekan state now

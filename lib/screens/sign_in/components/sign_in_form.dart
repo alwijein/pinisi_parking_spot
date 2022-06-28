@@ -1,13 +1,8 @@
 import 'Package:flutter/material.dart';
-import 'package:pinisi_parking_spot/bloc/page_bloc.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button.dart';
-import 'package:pinisi_parking_spot/screens/components/rounded_input_field.dart';
-import 'package:pinisi_parking_spot/screens/components/rounded_password_field.dart';
 import 'package:pinisi_parking_spot/screens/components/text_field_container.dart';
-import 'package:pinisi_parking_spot/screens/home_screen/home_screen.dart';
 import 'package:pinisi_parking_spot/services/user_services/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 
 class SignInForm extends StatefulWidget {
@@ -96,14 +91,14 @@ class _SignInFormState extends State<SignInForm> {
                     errors.add(kAddressNullError);
                   });
                 } else if (widget.isAdmin == true &&
-                    value != 'admin@gmail.com' &&
+                    value.trim() != 'admin@gmail.com' &&
                     !errors.contains(kIsNotAdmin)) {
                   setState(() {
                     stopSignIn = true;
                     errors.add(kIsNotAdmin);
                   });
                 } else if (widget.isAdmin == false &&
-                    value == 'admin@gmail.com' &&
+                    value.trim() == 'admin@gmail.com' &&
                     !errors.contains(kIsNotUser)) {
                   setState(() {
                     stopSignIn = true;
@@ -226,7 +221,7 @@ class _SignInFormState extends State<SignInForm> {
                       });
                     }
                     if (stopSignIn == false &&
-                        await AuthServices.signIn(email.text, password.text)) {
+                        await AuthServices.signIn(email.text.trim(), password.text)) {
                       Navigator.of(context).pop();
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(

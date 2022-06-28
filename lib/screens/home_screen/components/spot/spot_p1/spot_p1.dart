@@ -10,6 +10,9 @@ import 'package:pinisi_parking_spot/shared/shared.dart';
 import 'package:flutter_launcher_icons/utils.dart';
 import 'package:pinisi_parking_spot/utils/utils.dart';
 
+import '../../utils/horizontal_parking.dart';
+import '../../utils/vertical_parking.dart';
+
 part 'free_parking_01.dart';
 part 'free_parking_02.dart';
 part 'free_parking_03.dart';
@@ -90,18 +93,159 @@ class SpotP1 extends StatelessWidget {
           height: getPropertionateScreenHeight(20),
         ),
         SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              FreeParking01(),
-              SizedBox(
-                width: getPropertionateScreenWidht(20),
-              ),
-              FreeParking02(),
-              FreeParking03(),
-            ],
-          ),
-        ),
+            scrollDirection: Axis.horizontal,
+            child: Stack(
+              children: [
+                Row(
+                  children: [
+                    SizedBox(
+                      width: getPropertionateScreenWidht(100),
+                    ),
+                    Container(
+                      width: getPropertionateScreenWidht(720),
+                      child: Image.asset('assets/images/bg_spot_1.png'),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // one
+                    SizedBox(
+                      height: getPropertionateScreenHeight(96),
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: getPropertionateScreenWidht(130),
+                        ),
+                        HorizontalParking(["1", "2", "3"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["4", "5", "6"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["7", "8", "9"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(20),
+                        ),
+                        HorizontalParking(["10"])
+                      ],
+                    ),
+
+                    // two
+                    SizedBox(
+                      height: getPropertionateScreenHeight(106),
+                    ),
+                    VerticalParking(["11", "12"]),
+                    SizedBox(height: getPropertionateScreenHeight(0)),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: getPropertionateScreenWidht(202),
+                          height: 0,
+                        ),
+                        HorizontalParking(["13", "14", "15"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["16", "17", "18"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["19", "20", "21"])
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: getPropertionateScreenWidht(202),
+                          height: getPropertionateScreenHeight(80),
+                        ),
+                        HorizontalParking(["22", "23", "24"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["25", "26", "27"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["28", "29", "30"])
+                      ],
+                    ),
+                    SizedBox(
+                      height: getPropertionateScreenHeight(120),
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(
+                          height: getPropertionateScreenHeight(20),
+                        ),
+                        VerticalParking(["31", "32", "33"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(150),
+                        ),
+                        HorizontalParking(["34", "35", "36"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["37", "38", "39"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["40", "41", "42"])
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: getPropertionateScreenWidht(202),
+                          height: getPropertionateScreenHeight(70),
+                        ),
+                        HorizontalParking(["43", "44", "45"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["46", "47", "48"]),
+                        SizedBox(
+                          width: getPropertionateScreenWidht(24),
+                        ),
+                        HorizontalParking(["49", "50", "51"])
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            )
+
+            // Row(
+            //   children: [
+            //
+            // FreeParking01(),
+            // SizedBox(
+            //   width: getPropertionateScreenWidht(20),
+            // ),
+            // FreeParking02(),
+            // FreeParking03(),
+            // ],
+            // ),
+            ),
+        // SingleChildScrollView(
+        //   scrollDirection: Axis.horizontal,
+        //   child: Row(
+        //     children: [
+        //       FreeParking01(),
+        //       SizedBox(
+        //         width: getPropertionateScreenWidht(20),
+        //       ),
+        //       FreeParking02(),
+        //       FreeParking03(),
+        //     ],
+        //   ),
+        // ),
       ],
     );
   }

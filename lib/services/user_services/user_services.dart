@@ -43,7 +43,7 @@ class UserServices {
     );
   }
 
-  static Future<List<Users>> getUsers() async {
+  Future<List<Users>> getUsers() async {
     List<Users> users = [];
     QuerySnapshot maps = await _userCollection.get();
 

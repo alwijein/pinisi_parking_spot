@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:pinisi_parking_spot/shared/shared.dart';
 
 class SelectedForField {
   static List<Map<String, dynamic>> items = [

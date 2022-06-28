@@ -11,8 +11,8 @@ class ParkingBoxHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: getPropertionateScreenWidht(80),
-      height: getPropertionateScreenHeight(45),
+      width: getPropertionateScreenWidht(50),
+      height: getPropertionateScreenHeight(28),
       decoration: BoxDecoration(
         border: Border.all(width: 2, color: kPrimaryLightColor),
       ),

@@ -1,6 +1,8 @@
 part of 'utils.dart';
 
 StreamBuilder<Event?> parkingBuilderVertical(String id, String role) {
+  final UserServices userServices = UserServices();
+
   final DBref = FirebaseDatabase.instance.reference();
   final CollectionReference _userCollection =
       FirebaseFirestore.instance.collection('users');
@@ -13,22 +15,34 @@ StreamBuilder<Event?> parkingBuilderVertical(String id, String role) {
 
         if (data.data!.snapshot.value[id] == true && role == 'user') {
           return ParkingBoxVertical(
-            value: Padding(
-              padding: EdgeInsets.all(getPropertionateScreenWidht(5)),
-              child: SvgPicture.asset(
-                'assets/icons/car_top_view_vertical.svg',
-                fit: BoxFit.fitWidth,
+            value: GestureDetector(
+              onTap: () {
+                DBref.child('Parking').update({id: false});
+                dialogShow(id);
+              },
+              child: Padding(
+                padding: EdgeInsets.all(getPropertionateScreenWidht(5)),
+                child: SvgPicture.asset(
+                  'assets/icons/car_top_view_vertical.svg',
+                  fit: BoxFit.fitWidth,
+                ),
               ),
             ),
           );
         } else if (data.data!.snapshot.value[id] == false && role == 'user') {
           return ParkingBoxVertical(
-            value: Center(
-              child: Text(
-                id,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+            value: GestureDetector(
+              onTap: () {
+                DBref.child('Parking').update({id: true});
+                dialogShow(id);
+              },
+              child: Center(
+                child: Text(
+                  id,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -85,7 +99,7 @@ StreamBuilder<Event?> parkingBuilderVertical(String id, String role) {
               });
         } else if (data.data!.snapshot.value[id] == false && role == 'admin') {
           return FutureBuilder<List<Users>>(
-              future: UserServices.getUsers(),
+              future: userServices.getUsers(),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return ParkingBoxVertical(

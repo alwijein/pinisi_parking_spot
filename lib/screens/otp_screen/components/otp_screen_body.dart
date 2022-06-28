@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
-import 'package:pinisi_parking_spot/screens/components/default_button.dart';
 import 'package:pinisi_parking_spot/screens/otp_screen/components/otp_form.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
 import 'dart:core';

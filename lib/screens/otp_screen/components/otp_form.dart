@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pinisi_parking_spot/config/email_config.dart';
 import 'package:pinisi_parking_spot/config/size_config.dart';
 import 'package:pinisi_parking_spot/screens/components/default_button.dart';
 import 'package:pinisi_parking_spot/services/user_services/services.dart';
 import 'package:pinisi_parking_spot/shared/shared.dart';
-import 'package:email_auth/email_auth.dart';
 import 'package:email_otp/email_otp.dart';
 
 class OtpForm extends StatefulWidget {
